@@ -1,0 +1,24 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore employee-front-end/frontend-app.csproj
+    - name: Build
+      run: dotnet build employee-front-end/frontend-app.csproj --no-restore
+    - name: Test
+      run: dotnet test employee-front-end/frontend-app.csproj --no-build --verbosity normal

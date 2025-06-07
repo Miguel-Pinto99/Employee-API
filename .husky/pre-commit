@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running dotnet format..."
+dotnet format --verify-no-changes || {
+  echo "❌ Code is not formatted. Please run 'dotnet format' and try again."
+  exit 1
+}

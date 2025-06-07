@@ -1,0 +1,559 @@
+﻿@page "/{location}/Dashboard"
+
+<PageTitle>PVS Employee Dashboard</PageTitle>
+
+@using employee_front_end.Event
+@using employee_front_end.Infrastructure
+@using employee_front_end.Model
+@using MQTTnet
+@using MQTTnet.Client
+@using Microsoft.AspNetCore.Mvc
+@using System.Text.RegularExpressions
+@using System.Text.Json
+@using Microsoft.AspNetCore.Components.Routing
+@using System.ComponentModel.DataAnnotations
+
+@inject UnsService _unsService
+@inject UnsEvents _unsEvent
+
+
+<head>
+    <style>
+
+
+        .Title {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            font-weight: 900;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #f2f2f2;
+            background-color: #1f4284;
+            width: 100%;
+            height: 100px;
+            vertical-align: middle;
+            font-size: 45px;
+            border-bottom: 3px solid #ffff;
+        }
+
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left: 20%;
+            padding-top: 1%;
+            font-weight: bold;
+            font-size: 80px;
+        }
+
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left: 20%;
+            padding-top: 1%;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+
+        ul {
+            background-color: #4474cf;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            width: 15%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        li a {
+            display: block;
+            text-decoration: none;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: white;
+            border-bottom: 3px solid #ffff;
+        }
+
+            li a:hover:not(.active) {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+            li a:hover.active {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+        th, td{
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: x-large;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            vertical-align: top;
+            width: 30vh;
+
+        }
+
+        th {
+            text-align: center;
+            background-color: #1f4284;
+            color: white;
+            font-size: 35px;
+            vertical-align: middle;
+        }
+
+
+
+        tr:nth-child() {
+            background-color: white;
+            font-size: 20px;
+            padding: 10px;
+
+        }
+        .tooltiptext {
+            visibility: hidden;
+            background-color: #4474cf;
+            border-color: black;
+            border-style: solid;
+            font-size:large;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 5px;
+            position: absolute;
+            z-index: 1;           
+            
+
+        }
+
+        .spn:hover .tooltiptext {
+            visibility: visible;
+            position:relative;
+            left:25px;
+
+        }
+
+        .spn{
+            padding-right: 5px;
+            font-weight: 500;
+            font-size: xx-large;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 15px;
+            height: 8vh;
+            width: 8vh;
+            border-radius: 50%;
+            display: inline-block;
+            border-style: solid;
+            border-color: black;
+            color:aliceblue;
+            white-space: nowrap;
+/*            background-color: #1f4284;*/
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <div class="Title">@location</div>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard",location)'>Dashboard</NavLink>
+            </li>
+
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard_Extended",location)'>Extended Dashboard </NavLink>
+            </li>
+
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Registered_Workers",location)'>Registered Workers</NavLink>
+            </li>
+
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Workers_For_Today",location)'>Today Workers</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Checked_In",location)'>Checked-In</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Absents_For_Today",location)'>Planned Absents</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}",location)'>Go Back</NavLink>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+    <table style="
+            border-collapse: collapse;
+            margin-left:15%;
+            width:85%;
+            ">
+        <tr>
+
+        <th style="width: 28vh">Checked-In</th>
+        <th style="width: 28vh">Not Scheduled to Work</th>
+        <th style="width: 28vh">Absents</th>
+        <th style = "width: 28vh">
+            <div style="height: 11vh;line-height: 0px">
+                <input @bind="@inputValue" style="
+                        height: 4vh;
+                        width: 18vh;
+                        float: left;
+                        position: absolute;
+                        top: 4vh;
+                        left: 152vh;
+                        border-radius: 8px;
+                        font-size: 15px;">
+                <form type="text" placeholder="Search.. ">
+                </form>
+                <button style="
+                                background-color: #9999;
+                                color: aliceblue;
+                                    width: 9vh;
+                                    height: 4vh;
+                                    float: left;
+                                    position: absolute;
+                                    top: 4vh;
+                                    left: 171vh;
+                                    font-size: 16px;
+                                border-radius: 8px;"
+                        @onclick="FilterSearch">
+                    Search
+                </button>
+                <button style="
+                            background-color: #9999;
+                           color: aliceblue;
+                            width: 7vh;
+                            height: 4vh;
+                            float: left;
+                            position: absolute;
+                            top: 4vh;
+                            left: 181vh;
+                            font-size: 16px;
+                            border-radius: 8px;"
+                        @onclick="DeleteSearch">
+                    Clear
+                </button>
+            </div>
+        </th>
+        </tr>
+    <tbody>
+        <td>
+        @foreach (var state in _listStateCycle0)
+        {
+
+            <span class="spn" style="background-color: @state.Colour">
+                <span class="tooltiptext" style="color:black;background-color: #DDFE9F">@state.Name</span>
+                        @state.Initials
+            </span>
+
+        }
+    </td>
+        <td>
+            @foreach (var state in _listStateCycle2345)
+        {
+
+            <span class="spn" style="background-color: @state.Colour;">
+                @if(state.StateInt is 5)
+                {
+                    <span class="tooltiptext" style="color:black;background-color: #C6E2FF">@state.Name</span>
+                        @state.Initials
+                }
+                else
+                {
+                    <span class="tooltiptext" style="color:black;background-color: #F0F08C">@state.Name</span>
+                        @state.Initials
+                }
+            </span>
+        } 
+        </td>
+        <td>
+            @foreach (var state in _listStateCycle1)
+        {
+
+            <span class="spn" style="background-color: @state.Colour;color:#F0F0F0">
+                <span class="tooltiptext" style="color:black;background-color: #FEB79F;">@state.Name</span>
+                        @state.Initials
+            </span>
+
+        }
+    </td>
+    </tbody>
+</table>
+@code {
+    [Parameter]
+    [Required]
+    public string location { get; set; } = string.Empty;
+
+    public List<ApplicationUser> _listApplicationUsers = new List<ApplicationUser>();
+    public List<ApplicationUser> _listApplicationUsersLocation = new List<ApplicationUser>();
+    public List<UsersEachLocation> _listLocations = new List<UsersEachLocation>();
+    public List<State> _listState = new List<State>();
+    public List<State> _listStateCycle = new List<State>();
+
+    public List<State> _listState0 = new List<State>();
+    public List<State> _listStateCycle0 = new List<State>();
+
+    public List<State> _listState1 = new List<State>();
+    public List<State> _listStateCycle1 = new List<State>();
+
+    public List<State> _listState2345 = new List<State>();
+    public List<State> _listStateCycle2345 = new List<State>();
+
+    public string inputValue = "";
+    public string searchString { get; set; } = string.Empty;
+
+
+    private void FilterSearch()
+    {
+        StateHasChanged();
+        searchString = inputValue;
+
+        var listSearchUsers1 = new List<State>();
+        var listSearchUsers2 = new List<State>();
+        var listSearchUsers3 = new List<State>();
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var state in _listState0)
+            {
+                if (Regex.IsMatch(state.Name, patternSearch))
+                {
+                    listSearchUsers1.Add(state);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers1 = _listState0;
+        }
+
+
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var state in _listState1)
+            {
+                if (Regex.IsMatch(state.Name, patternSearch))
+                {
+                    listSearchUsers2.Add(state);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers2 = _listState1;
+        }
+
+
+
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var state in _listState2345)
+            {
+                if (Regex.IsMatch(state.Name, patternSearch))
+                {
+                    listSearchUsers3.Add(state);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers3 = _listState2345;
+        }
+
+        listSearchUsers1 = listSearchUsers1.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+        listSearchUsers3 = listSearchUsers3.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+        listSearchUsers2 = listSearchUsers2.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+
+        _listStateCycle0 = listSearchUsers1;
+        _listStateCycle1 = listSearchUsers2;
+        _listStateCycle2345 = listSearchUsers3;
+        inputValue = "";
+    }
+    private void DeleteSearch()
+    {
+        searchString = "";
+
+        var listSearchUsers = new List<State>();
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var state in _listState)
+            {
+                if (Regex.IsMatch(state.Name, patternSearch))
+                {
+                    listSearchUsers.Add(state);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers = _listState;
+        }
+        _listStateCycle0 = _listState0;
+        _listStateCycle1 = _listState1;
+        _listStateCycle2345 = _listState2345;
+        inputValue = "";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {        
+        try
+        {
+            _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+            _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+
+            _unsEvent.CallBackEvent += RenderPage;
+
+            await SubscriberLogicAsync();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it appropriately
+            Console.WriteLine($"Error in OnInitializedAsync: {ex.Message}");
+        }
+    }
+
+
+    public async void RenderPage(object sender, EventArgs e)
+    {
+        _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+        await SubscriberLogicAsync();
+        this.InvokeAsync(() => this.StateHasChanged());
+    }
+
+
+    private async Task SubscriberLogicAsync()
+    {
+        _listApplicationUsersLocation = new List<ApplicationUser>();
+        var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
+
+        if (usersInLocation is not null)
+        {
+            var _filterList = _listApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
+            foreach (var guid in _filterList)
+            {
+                var user = _listApplicationUsers.FirstOrDefault(x => x.Id == guid);
+                _listApplicationUsersLocation.Add(user);
+            }
+        }
+        else
+        {
+            _listApplicationUsersLocation = new List<ApplicationUser>();
+        }
+        _listState = new List<State>();
+        _listState = await CreateStateModel(_listApplicationUsersLocation);
+
+        _listState0 = new List<State>();
+        _listState2345 = new List<State>();
+        _listState1 = new List<State>();
+
+        foreach (var state in _listState)
+        {
+            if (state.StateInt == 0)
+            {
+                _listState0.Add(state);
+            }
+            else if (state.StateInt == 1)
+            {
+                _listState1.Add(state);
+            }
+            else 
+            {
+                _listState2345.Add(state);
+            }
+        }
+
+        _listState0 = _listState0.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+        _listState2345 = _listState2345.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+        _listState1 = _listState1.OrderBy(e => e.StateDescription).ThenBy(e => e.Initials).ToList();
+
+        _listStateCycle0 = _listState0;
+        _listStateCycle2345 = _listState2345;
+        _listStateCycle1 = _listState1;
+    }
+
+    private async Task<List<State>> CreateStateModel(List<ApplicationUser> listApplicationUsersLocation)
+    {
+        var listState = new List<State>();
+        foreach (var applicationUser in listApplicationUsersLocation)
+        {
+            var name = applicationUser.PersonalInfo.Name;
+            var checkedIn = applicationUser.Checked_In;
+            var scheduleWorkNow = applicationUser.ScheduleWorkNow;
+
+            var reason = "";
+            var fromAbsent = new DateTime();
+            var tillAbsent = new DateTime();
+
+            if (applicationUser.TodayAbsent is not null)
+            {
+                reason = applicationUser.TodayAbsent.Reason ?? "";
+                fromAbsent = Convert.ToDateTime(applicationUser.TodayAbsent.From);
+                tillAbsent = Convert.ToDateTime(applicationUser.TodayAbsent.Till);
+            }
+            else
+            {
+                reason = "";
+                fromAbsent = DateTime.Now.AddDays(9999999);
+                tillAbsent = DateTime.Now.AddDays(99999999);
+            }
+            var state = new State(404, name);
+            var now = DateTime.UtcNow;
+            var shift = applicationUser.TodayShift;
+
+            if (checkedIn)
+            {
+                state = new State(0, name);
+            }
+            else
+            {
+                if (shift?.From is not null)
+                {
+                    if (scheduleWorkNow)
+                    {
+                        state = new State(1, name);
+                    }
+                    else if ((now > fromAbsent) & (now < tillAbsent))
+                    {
+                        state = new State(4, name);
+                        state.StateDescription = "Scheduled to be absent because " + reason;
+                    }
+                    else
+                    {
+                        state = new State(5, name);
+                    }
+                }
+                else
+                {
+                    state = new State(5, name);
+                }
+            }
+
+            listState.Add(state);
+        }
+        return listState;
+    }
+
+}
+
+

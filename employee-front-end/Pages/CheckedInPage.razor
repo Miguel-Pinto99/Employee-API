@@ -1,0 +1,362 @@
+﻿@page "/{location}/Checked_In"
+
+<PageTitle>PVS Employee Dashboard</PageTitle>
+
+@using employee_front_end.Event
+@using employee_front_end.Infrastructure
+@using employee_front_end.Model
+@using Microsoft.AspNetCore.Mvc
+@using System.Text.RegularExpressions
+
+@inject UnsService _unsService
+@inject UnsEvents _unsEvent
+
+<head>
+    <style>
+
+
+        .Title {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            font-weight: 900;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #f2f2f2;
+            background-color: #1f4284;
+            width: 100%;
+            height: 100px;
+            vertical-align: middle;
+            font-size: 45px;
+            border-bottom: 3px solid #ffff;
+        }
+
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left: 20%;
+            padding-top: 1%;
+            font-weight: bold;
+            font-size: 0px;
+        }
+
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left: 20%;
+            padding-top: 1%;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+
+        ul {
+            background-color: #4474cf;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            width: 15%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        li a {
+            display: block;
+            text-decoration: none;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: white;
+            border-bottom: 3px solid #ffff;
+        }
+
+            li a:hover:not(.active) {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+            li a:hover.active {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+        th, td {
+            text-align:center;
+            font-family: 'Trebuchet MS', sans-serif;
+            padding-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        th {
+            background-color: #1f4284;
+            color: white;
+            font-size: 35px;
+        }
+
+        td {
+            font-size: 18px;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+            font-size: 18px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: whitesmoke;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+        <li>
+            <div class="Title">@location</div>
+        </li>
+        <li>
+            <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard",location)'>Dashboard</NavLink>
+        </li>
+
+        <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard_Extended",location)'>Extended Dashboard </NavLink>
+        </li>
+
+        <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Registered_Workers",location)'>Registered Workers</NavLink>
+        </li>
+
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Workers_For_Today",location)'>Today Workers</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Checked_In",location)'>Checked-In</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Absents_For_Today",location)'>Planned Absents</NavLink>
+            </li>
+            <li>
+                <NavLink class="a" href='@string.Format("https://localhost:7212/{0}",location)'>Go Back</NavLink>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+    <table style="
+            border-collapse: collapse;
+            margin-left:15%;
+            width:85%;
+            ">
+        <tr>
+        <th style="width: 5vh">Nº</th>
+        <th style="width: 15vh; text-align:center">Name</th>
+        <th style="width: 15vh; text-align:center"> Checked-In</th>
+        <th colspan="2" style="width: 15vh;" text-align:center">Shifts</th>
+        <th colspan="2" style="width: 15vh;" text-align:center">Absent</th>
+        <th style="width: 15vh; text-align:center">Reason</th>
+        
+        <th style="width: 35vh">
+            <div style="height: 11vh;line-height: 0px">
+                <input @bind="@inputValue" style="
+                        height: 4vh;
+                        width: 18vh;
+                        float: left;
+                        position: absolute;
+                        top: 4vh;
+                        left: 152vh;
+                        border-radius: 8px;
+                        font-size: 15px;">
+                <form type="text" placeholder="Search.. ">
+                </form>
+                <button style="
+                                background-color: #9999;
+                                color: aliceblue;
+                                    width: 9vh;
+                                    height: 4vh;
+                                    float: left;
+                                    position: absolute;
+                                    top: 4vh;
+                                    left: 171vh;
+                                    font-size: 16px;
+                                border-radius: 8px;"
+                        @onclick="FilterSearch">
+                    Search
+                </button>
+                <button style="
+                            background-color: #9999;
+                           color: aliceblue;
+                            width: 7vh;
+                            height: 4vh;
+                            float: left;
+                            position: absolute;
+                            top: 4vh;
+                            left: 181vh;
+                            font-size: 16px;
+                            border-radius: 8px;"
+                        @onclick="DeleteSearch">
+                    Clear
+                </button>
+            </div>
+        </th>
+        </tr>
+    <tbody>
+        @if (_listTodayApplicationUsersLocationCycle.Any())
+        {
+        @foreach (var applicationUser in _listTodayApplicationUsersLocationCycle)
+        {
+            <tr>
+                <td>@(1 + _listTodayApplicationUsersLocation.IndexOf(applicationUser)) </td>
+                <td style="text-align:left">@applicationUser.PersonalInfo.Name</td>
+                @if(applicationUser.Checked_In)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                <td style="width: 5vh">@applicationUser.TodayShift.From</td>
+                <td style="width: 5vh">@applicationUser.TodayShift.Till</td>
+                <td style="width: 5vh">@applicationUser.TodayAbsent.From</td>
+                <td style="width: 5vh">@applicationUser.TodayAbsent.Till</td>
+                <td style="width: 15vh">@applicationUser.TodayAbsent.Reason</td>
+                <td></td>
+            </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="width: 5vh"></td>
+                <td style="width: 5vh"></td>
+                <td style="width: 5vh"></td>
+                <td style="width: 5vh"></td>
+                <td style="width: 15vh"></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+    [Parameter]
+    public string location { get; set; }
+    public List<ApplicationUser> _listApplicationUsers = new List<ApplicationUser>();
+    public List<ApplicationUser> _listTodayApplicationUsers = new List<ApplicationUser>();
+    public List<UsersEachLocation> _listLocations = new List<UsersEachLocation>();
+    public List<ApplicationUser> _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+    public List<ApplicationUser> _listTodayApplicationUsersLocationCycle = new List<ApplicationUser>();
+
+    public string inputValue = "";
+    public string searchString { get; set; }
+
+    private void FilterSearch()
+    {
+        searchString = inputValue;
+
+
+        var listSearchUsers = new List<ApplicationUser>();
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var user in _listTodayApplicationUsersLocation)
+            {
+                if (Regex.IsMatch(user.PersonalInfo.Name, patternSearch))
+                {
+                    listSearchUsers.Add(user);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers = _listTodayApplicationUsersLocation;
+        }
+        _listTodayApplicationUsersLocationCycle = listSearchUsers;
+        inputValue = "";
+    }
+
+    private void DeleteSearch()
+    {
+        searchString = "";
+
+
+        var listSearchUsers = new List<ApplicationUser>();
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            string patternSearch = @"(?i)" + searchString;
+            foreach (var user in _listTodayApplicationUsersLocation)
+            {
+                if (Regex.IsMatch(user.PersonalInfo.Name, patternSearch))
+                {
+                    listSearchUsers.Add(user);
+                }
+            }
+        }
+        else
+        {
+            listSearchUsers = _listTodayApplicationUsersLocation;
+        }
+        _listTodayApplicationUsersLocationCycle = listSearchUsers;
+        inputValue = "";
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+
+        _unsEvent.CallBackEvent += RenderPage;
+
+        await SubscriberLogicAsync();
+    }
+
+
+    public async void RenderPage(object sender, EventArgs e)
+    {
+        _listLocations = new List<UsersEachLocation>();
+        _listApplicationUsers = new List<ApplicationUser>();
+
+        _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+        await SubscriberLogicAsync();
+        this.InvokeAsync(() => this.StateHasChanged());
+    }
+
+    private async Task SubscriberLogicAsync()
+    {
+        _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+        _listTodayApplicationUsers = _listApplicationUsers.FindAll(x => x.Checked_In is true);
+        _listTodayApplicationUsers = _listTodayApplicationUsers.FindAll(x => x.RoleId == "39e03819-da1b-482e-af27-57ccdec43d8d");
+        var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
+
+        if (usersInLocation is not null)
+        {
+            var _filterList = _listTodayApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
+            foreach (var guid in _filterList)
+            {
+                var user = _listTodayApplicationUsers.FirstOrDefault(x => x.Id == guid);
+                _listTodayApplicationUsersLocation.Add(user);
+            }
+        }
+        else
+        {
+            _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+        }
+        _listTodayApplicationUsersLocationCycle = _listTodayApplicationUsersLocation;
+        _listTodayApplicationUsersLocationCycle = _listTodayApplicationUsersLocationCycle.OrderBy(x => x.PersonalInfo.Name).ToList();
+    }
+}
+
+

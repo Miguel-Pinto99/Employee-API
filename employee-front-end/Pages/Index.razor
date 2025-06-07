@@ -1,0 +1,140 @@
+﻿@page "/"
+
+@using employee_front_end.Infrastructure;
+@using employee_front_end.Model;
+@using Microsoft.AspNetCore.Http.Extensions;
+@inherits LayoutComponentBase
+@inject UnsService _unsService
+
+
+<PageTitle>PVS Employee Dashboard</PageTitle>
+
+
+@if (_isInitComplete is false)
+{
+    <p style="
+            font-weight: 900;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #1f4284;
+            font-size: 125px;
+            text-align:center;
+            position:absolute;
+            left:75vh;
+            bottom: 40vh;"><em>Loading...</em></p>
+}
+else
+{
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .background {
+            font-family: Arial;
+            background-image: url("locations/netherlands.png");
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 190vh;
+            background-position: center;
+            
+
+        }
+
+        .btn {
+            background-color: #ffff;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            border: 3px solid black;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+
+        .btn:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        a:hover {
+            background-color: #e41b13;
+        }
+
+        a.active {
+            background-color: #e41b13;
+        }
+
+        .buttonUdenhout {
+            position: absolute;
+            bottom: 29vh;
+            left: 89vh;
+        }
+
+        .buttonSittard {
+            position: absolute;
+            bottom: 7vh;
+            left: 106vh
+        }
+
+        .buttonDeurne {
+            position: absolute;
+            bottom: 24vh;
+            left: 104vh;
+        }
+
+    </style>
+</head>
+<div class="background">
+    <a class="btn buttonUdenhout" href='@string.Format("https://localhost:7212/{0}","Udenhout")'>
+        <span class="tooltiptext">Udenhout</span>
+    </a>
+    <a class="btn buttonSittard" href='@string.Format("https://localhost:7212/{0}","Sittard")'>
+        <span class="tooltiptext">Sittard</span>
+    </a>
+    <a class="btn buttonDeurne" href='@string.Format("https://localhost:7212/{0}","Deurne")'>
+        <span class="tooltiptext">Deurne</span>
+    </a>
+    
+    <img style="
+            position: relative;
+            width: 44vh;
+            height: 8vh;"
+         src="logo/Hoppenbrouwers-Techniek-logo-square.png">
+
+</div>
+}
+
+
+@code {
+    private bool _isInitComplete = false;
+
+    public List<ApplicationUser> _listApplicationUsers = new List<ApplicationUser>();
+    public List<UsersEachLocation> _listLocations = new List<UsersEachLocation>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _listLocations = await _unsService.SubscribeLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.SubscribeUsersAsync(CancellationToken.None);
+
+
+        _isInitComplete = true;
+
+
+    }
+}

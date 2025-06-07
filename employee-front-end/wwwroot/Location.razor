@@ -1,0 +1,418 @@
+﻿@page "/{location}"
+
+<PageTitle>PVS Employee Dashboard</PageTitle>
+
+
+@using employee_front_end.Event;
+@using employee_front_end.Infrastructure
+@using employee_front_end.Model
+@using Microsoft.AspNetCore.Mvc;
+
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+
+@inject UnsService _unsService
+@inject UnsEvents _unsEvent
+
+
+
+@if(_isInitComplete)
+{
+<head>
+    <style>
+            .background2 {
+            height: 100vh;
+            width: 190vh
+        }
+        .Title
+        {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            font-weight: 900;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #f2f2f2;
+            background-color: #1f4284;
+            width: 100%;
+            height: 100px;
+            vertical-align: middle;
+            font-size: 45px;
+            border-bottom: 3px solid #ffff;
+        }
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left:20%;
+            padding-top:1%;
+            font-weight: bold;
+            font-size: 80px;
+        }
+
+        p1 {
+            font-family: Tahoma, sans-serif;
+            margin-left: 20%;
+            padding-top: 1%;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+        ul {
+            background-color: #4474cf;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            width: 15%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        li a {
+            display: block;
+            text-decoration: none;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: white;
+            border-bottom: 3px solid #ffff;
+            background-color: #4474cf;
+
+        }
+
+            li a:hover:not(.active) {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+            li a:hover.active {
+                background-color: #1f4284;
+                color: white;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 3px solid #ffff;
+                border-top: 3px solid #ffff;
+            }
+
+        .split {
+            height: 100%;
+            width: 42.5%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 15%;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .centered1 {
+
+            position: absolute;
+            top: 12%;
+            left: 12%;
+            text-align: left;
+            width: 100%;
+
+            color: #000000;
+            font-weight: 90;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 22.5px;
+
+        }
+
+            .centered1 img {
+                width: 85%;
+            }
+
+        .centered2 {
+            position: absolute;
+            top: 12%;
+            left: 12%;
+            text-align: left;
+            width: 80%;
+        }
+
+
+            th, td {
+            text-align: left;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: 450;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        th {
+            background-color: #21468c;
+            color: white;
+            font-size: 35px;
+        }
+        td:nth-child(even) {
+            font-size: 20px;
+        }
+
+        td:nth-child(odd) {
+            font-size: 20px;
+        }
+
+                tr:nth-child(even) {
+            background-color: white;
+            font-size: 20px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: whitesmoke;
+            font-size: 20px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+
+<Body class="background2">
+
+<div>
+    <ul>
+                <li>
+                    <div class="Title">@location</div>
+                </li>
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard",location)'>Dashboard</NavLink>
+                </li>
+
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Dashboard_Extended",location)'>Extended Dashboard </NavLink>
+                </li>
+
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Registered_Workers",location)'>Registered Workers</NavLink>
+                </li>
+
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Workers_For_Today",location)'>Today Workers</NavLink>
+                </li>
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Checked_In",location)'>Checked-In</NavLink>
+                </li>
+                <li>
+                    <NavLink class="a" href='@string.Format("https://localhost:7212/{0}/Absents_For_Today",location)'>Planned Absents</NavLink>
+                </li>
+                <li>
+                    <NavLink class="a" href="/">Go Back</NavLink>
+                </li>
+    </ul>
+</div>
+    <div class="split left">
+    <div class="centered1">
+            <img src=@imagePath>
+
+            <table style="
+            padding-top: 10%;
+            height: 28.25vh;
+            width:85%;">
+
+                <tr>
+                    <th>Registered Workers:</th>
+                    <th>@countApplicationUsers</th>
+                </tr>
+
+                <tr>
+                    <th>Scheduled to Work Today: </th>
+                    <th>@countTodayWorkers</th>
+                </tr>
+
+                <tr>
+                    <th>Checked-In:</th>
+                    <th>@countApplicationUsersCheckedIn</th>
+                </tr>
+
+                <tr>
+                    <th>Planned Absents:</th>
+                    <th>@countAbsents</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="split right">
+        <div style="background-color:#4474cf; height: 75vh" class="centered2">
+            <h2 style="
+            padding:20px;
+            width:100%;
+            background-color:#1f4284;
+
+            border-bottom-color:#ffff;
+            color: #ffff;
+            color: #ffff;
+            font-weight: 900;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 45px;">
+                About us:
+            </h2>
+            <p style="
+            text-align: justify;
+            padding:20px;
+            background-color:#4474cf;
+            color: #ffff;
+            font-weight: 70;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 21px;">
+                @text
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+</Body>
+}
+
+
+@code {
+
+    private bool _isInitComplete = false;
+
+    [Parameter]
+    public string location { get; set; }
+
+    public List<ApplicationUser> _listApplicationUsers = new List<ApplicationUser>();
+
+    public List<ApplicationUser> _listTodayApplicationUsers = new List<ApplicationUser>();
+    public List<UsersEachLocation> _listLocations = new List<UsersEachLocation>();
+    public List<ApplicationUser> _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+    public List<ApplicationUser> _listTodayAbsents = new List<ApplicationUser>();
+    public List<ApplicationUser> _listApplicationUsersLocation = new List<ApplicationUser>();
+    public string text = "";
+    public string imagePath = "";
+    public int countAbsents = new int();
+    public int countTodayWorkers = new int();
+    public int countApplicationUsers = new int();
+    public int countApplicationUsersCheckedIn = new int();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        imagePath = "/" + location + ".png";
+
+        if (location == "Udenhout")
+        {
+            text = "Udenhout. Where it all started. Here lie the roots of what was once a small installation company which now employs more than 1600 people. "+ 
+            " Everyone is important. Everyone gets plenty of opportunities."+ 
+            " Everyone can excel. But together we make it better. You will find all disciplines in Udenhout, such as the staff departments, financial " +
+            "administration and HR teams. We have plenty of knowledge at our location in Udenhout. No assignment is too difficult. We do like a challenge. "+
+            "So no matter how big or how modest your company is, no matter what technical issue you are struggling with and no matter what industry you operate in,"+ 
+            " you are more than welcome.";
+        }
+        else if (location == "Deurne")
+        {
+            text = "Hoppenbrouwers Techniek Deurne is a genuine total installer. We are both designer and implementer, and also think along with the customer" +
+            ". As a business partner, we translate wishes into advice and then bring them to reality. We design, install and maintain both electrical " +
+            "and mechanical installations. In this way, knowledge, expertise and good service are assured to the customer from A to Z. We have earned our reputation in " +
+            "panel construction, industrial automation, security, electrical engineering, utilities and services.";
+        }
+        else if (location == "Sittard")
+        {
+            text = "Hoppenbrouwers Techniek Sittard is as new as it is experienced. The roots of the Sittard location lie with the company Hatulek," +
+            " a company with over 40 years of experience in the field of electrical installations projects, maintenance & technical management and panel construction." +
+            "In 2020, Hatulek joined the Hoppenbrouwers family. Due to years of experience in the area, we are deeply rooted in Limburg. But thanks to the connection with" +
+            " Hoppenbrouwers, we now also have the advantage of offering mechanical engineering installations and experience in various market segments." +
+            "As a location, we excel in panel construction, electrotechnical and security installations and industrial automation. For other installations, we seek cooperation" +
+            "with fellow branches. As a result, the customer benefits from all the knowledge and expertise that a total installer has at his disposal.";
+        }
+
+        _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+
+        _unsEvent.CallBackEvent += RenderPage;
+
+        await SubscriberLogicAsync();
+    }
+
+
+    public async void RenderPage(object sender, EventArgs e)
+    {
+        _listLocations = new List<UsersEachLocation>();
+        _listApplicationUsers = new List<ApplicationUser>();
+
+        _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+        _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
+        await SubscriberLogicAsync();
+        this.InvokeAsync(() => this.StateHasChanged());
+    }
+
+    private async Task SubscriberLogicAsync()
+    {
+        _listTodayApplicationUsers = new List<ApplicationUser>();
+        _listTodayAbsents = new List<ApplicationUser>();
+        _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+        _listApplicationUsersLocation = new List<ApplicationUser>();
+
+        if (_listApplicationUsers is not null)
+        {
+            _listTodayApplicationUsers = _listApplicationUsers.FindAll(x => x.TodayShift is not null);
+            _listTodayApplicationUsers = _listTodayApplicationUsers.FindAll(x => x.TodayShift.From is not null);
+        }
+        var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
+
+        if (usersInLocation is not null)
+        {
+            var _filterList1 = _listTodayApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
+            var _filterList2 = _listApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
+            foreach (var guid in _filterList1)
+            {
+                var user = _listTodayApplicationUsers.FirstOrDefault(x => x.Id == guid);
+                _listTodayApplicationUsersLocation.Add(user);
+            }
+            foreach (var guid in _filterList2)
+            {
+                var user = _listApplicationUsers.FirstOrDefault(x => x.Id == guid);
+                _listApplicationUsersLocation.Add(user);
+            }
+        }
+        else
+        {
+            _listTodayApplicationUsersLocation = new List<ApplicationUser>();
+        }
+        _listTodayAbsents = _listApplicationUsersLocation.FindAll(x => x.TodayAbsent != null);
+        _listTodayAbsents = _listTodayAbsents.FindAll(x => x.TodayAbsent.From != null);
+
+        countAbsents = _listTodayAbsents.Count();
+        countTodayWorkers = _listTodayApplicationUsersLocation.Count();
+        if (_listApplicationUsersLocation is not null)
+        {
+            countApplicationUsers = _listApplicationUsersLocation.Count();
+        }
+        else
+        {
+            countApplicationUsers = 0;
+        }
+
+        countApplicationUsersCheckedIn = (_listApplicationUsersLocation.FindAll(x => x.Checked_In == true)).Count();
+        _isInitComplete = true;
+
+    }
+}
+

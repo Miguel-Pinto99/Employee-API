@@ -1,0 +1,42 @@
+{
+    "name": "Blazor Frontend Development",
+    "dockerComposeFile": [
+        "../local.yml"
+    ],
+    "service": "frontend",
+    "init": true,
+    "mounts": [
+        {
+            "source": "~/.ssh",
+            "target": "/home/vscode/.ssh",
+            "type": "bind"
+        }
+    ],
+    "overrideCommand": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.blazorwasm-companion",
+                "visualstudioexptteam.vscodeintellicode",
+                "mhutchie.git-graph",
+                "davidanson.vscode-markdownlint",
+                "mrmlnc.vscode-duplicate"
+            ]
+        }
+    },
+    "forwardPorts": [5000, 5001],
+    "postCreateCommand": "dotnet restore",
+    "postAttachCommand": "git config --global --add safe.directory /workspace",
+    "remoteUser": "vscode",
+    "workspaceFolder": "/workspace",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        }
+    }
+} 

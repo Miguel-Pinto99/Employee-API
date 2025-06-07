@@ -1,0 +1,13 @@
+{
+  "name": "employee-api",
+  "version": "1.0.0",
+  "description": "Employee API with .NET and Husky pre-commit hooks",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "format": "dotnet format"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11"
+  }
+} 
