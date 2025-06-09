@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 
-namespace Project1
+namespace employee_api
 {
     public class RequestValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {

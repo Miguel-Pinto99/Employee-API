@@ -8,6 +8,7 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using employee_api.Events;
+using employee_api.Events.UnsEvents;
 using employee_api.Models;
 using Xunit;
 
