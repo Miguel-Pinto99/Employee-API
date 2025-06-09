@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Project1.Migrations
+namespace employee_api.Migrations
 {
     /// <inheritdoc />
     public partial class addDrescriptionAbsent : Migration

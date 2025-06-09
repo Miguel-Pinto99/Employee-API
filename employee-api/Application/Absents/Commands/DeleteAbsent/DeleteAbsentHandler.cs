@@ -1,15 +1,15 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.Absent.Commands.CreateAbsent;
-using Project1.Application.Absent.Commands.DeleteAbsent;
-using Project1.Events;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.Absent.Commands.DeleteAbsent;
+using employee_api.Events;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
+using employee_api.Events.AbsentLogicEvents;
 
-namespace Project1.Application.Absent.Commands.DeleteAbsent
+namespace employee_api.Application.Absent.Commands.DeleteAbsent
 {
     public class DeleteAbsentHandler : IRequestHandler<DeleteAbsentCommand, DeleteAbsentResponse>
     {

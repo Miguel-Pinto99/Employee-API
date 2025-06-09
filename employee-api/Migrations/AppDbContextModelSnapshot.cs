@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Project1.Data;
+using employee_api.Data;
 
 #nullable disable
 
-namespace Project1.Migrations
+namespace employee_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace Project1.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-            modelBuilder.Entity("Project1.Models.Absent", b =>
+            modelBuilder.Entity("employee_api.Models.Absent", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace Project1.Migrations
                     b.ToTable("Absent");
                 });
 
-            modelBuilder.Entity("Project1.Models.ApplicationUser", b =>
+            modelBuilder.Entity("employee_api.Models.ApplicationUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace Project1.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Project1.Models.WorkPattern", b =>
+            modelBuilder.Entity("employee_api.Models.WorkPattern", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace Project1.Migrations
                     b.ToTable("WorkPattern");
                 });
 
-            modelBuilder.Entity("Project1.Models.WorkPatternPart", b =>
+            modelBuilder.Entity("employee_api.Models.WorkPatternPart", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,9 +110,9 @@ namespace Project1.Migrations
                     b.ToTable("WorkPatternPart");
                 });
 
-            modelBuilder.Entity("Project1.Models.Absent", b =>
+            modelBuilder.Entity("employee_api.Models.Absent", b =>
                 {
-                    b.HasOne("Project1.Models.ApplicationUser", "User")
+                    b.HasOne("employee_api.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -121,9 +121,9 @@ namespace Project1.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Project1.Models.WorkPattern", b =>
+            modelBuilder.Entity("employee_api.Models.WorkPattern", b =>
                 {
-                    b.HasOne("Project1.Models.ApplicationUser", "User")
+                    b.HasOne("employee_api.Models.ApplicationUser", "User")
                         .WithMany("WorkPatterns")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -132,20 +132,20 @@ namespace Project1.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Project1.Models.WorkPatternPart", b =>
+            modelBuilder.Entity("employee_api.Models.WorkPatternPart", b =>
                 {
-                    b.HasOne("Project1.Models.WorkPattern", null)
+                    b.HasOne("employee_api.Models.WorkPattern", null)
                         .WithMany("Parts")
                         .HasForeignKey("WorkPatternId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Project1.Models.ApplicationUser", b =>
+            modelBuilder.Entity("employee_api.Models.ApplicationUser", b =>
                 {
                     b.Navigation("WorkPatterns");
                 });
 
-            modelBuilder.Entity("Project1.Models.WorkPattern", b =>
+            modelBuilder.Entity("employee_api.Models.WorkPattern", b =>
                 {
                     b.Navigation("Parts");
                 });

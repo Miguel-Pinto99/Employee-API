@@ -1,7 +1,7 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 
-namespace Project1.Application.Absent.Commands.EditAbsent
+namespace employee_api.Application.Absent.Commands.EditAbsent
 {
     public class EditAbsentCommand : IRequest<EditAbsentResponse>
     {

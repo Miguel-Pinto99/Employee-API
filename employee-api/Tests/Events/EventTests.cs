@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Events;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Events
+namespace employee_api.Tests.Events
 {
     public class EventsTests
     {

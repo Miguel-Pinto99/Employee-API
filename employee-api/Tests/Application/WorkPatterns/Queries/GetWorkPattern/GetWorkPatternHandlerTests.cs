@@ -1,9 +1,9 @@
 using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
-using Project1.Persistance;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Application.WorkPatterns.Queries.GetWorkPattern;
+using employee_api.Application.WorkPatterns.Queries.GetWorkPattern;
 using MediatR;
 
 namespace PVSDashboard.Tests.Application.WorkPatterns.Queries.GetWorkPattern
@@ -37,7 +37,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Queries.GetWorkPattern
         public async Task HandleShouldCallGetWorkPatternAsyncOnWorkPatternRepository_WhenCommandIsSet()
         {
             // Arrange
-            var workPattern = new Project1.Models.WorkPattern
+            var workPattern = new employee_api.Models.WorkPattern
             {
                 Id = Guid.NewGuid(),
                 UserId = 1,

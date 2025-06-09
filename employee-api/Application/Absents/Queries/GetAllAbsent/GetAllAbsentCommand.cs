@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Project1.Application.Absent.Queries.GetAllAbsent
+namespace employee_api.Application.Absent.Queries.GetAllAbsent
 {
     public class GetAllAbsentCommand : IRequest<GetAllAbsentResponse>
     {

@@ -1,14 +1,14 @@
 ﻿using MediatR;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
-namespace Project1.Application.Uns.EventHandlers
+namespace employee_api.Application.Uns.EventHandlers
 {
     public class PublishLocationEventHandler : INotificationHandler<PublishLocationEvent>
     {

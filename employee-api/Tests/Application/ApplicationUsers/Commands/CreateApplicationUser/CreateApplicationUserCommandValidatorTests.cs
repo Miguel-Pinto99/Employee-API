@@ -1,6 +1,6 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUser.Commands.CreateApplicationUser;
-using Project1.Application.ApplicationUsers.Commands.CreateApplicationUser;
+using employee_api.Application.ApplicationUser.Commands.CreateApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser

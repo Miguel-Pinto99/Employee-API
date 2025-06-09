@@ -1,14 +1,19 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.Absent.Commands.EditAbsent;
-using Project1.Events;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Data;
+using employee_api.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.Absent.Commands.EditAbsent;
+using employee_api.Events;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Events.AbsentLogicEvents;
 
-namespace Project1.Application.Absent.Commands.EditAbsent
+namespace employee_api.Application.Absent.Commands.EditAbsent
 {
     public class EditAbsentHandler : IRequestHandler<EditAbsentCommand, EditAbsentResponse>
     {

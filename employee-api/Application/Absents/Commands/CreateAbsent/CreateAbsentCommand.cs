@@ -1,8 +1,8 @@
 using MediatR;
-using Project1.Models;
+using employee_api.Models;
 using System.Text.Json.Serialization;
 
-namespace Project1.Application.Absent.Commands.CreateAbsent
+namespace employee_api.Application.Absent.Commands.CreateAbsent
 {
 
     public class CreateAbsentCommand : IRequest<CreateAbsentResponse>

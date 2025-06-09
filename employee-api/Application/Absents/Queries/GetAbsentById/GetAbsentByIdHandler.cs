@@ -1,7 +1,7 @@
 using MediatR;
-using Project1.Persistance;
+using employee_api.Persistance;
 
-namespace Project1.Application.Absent.Queries.GetAbsentByIdById
+namespace employee_api.Application.Absent.Queries.GetAbsentByIdById
 {
     public class GetAbsentByIdHandler : IRequestHandler<GetAbsentByIdCommand, GetAbsentByIdResponse>
     {

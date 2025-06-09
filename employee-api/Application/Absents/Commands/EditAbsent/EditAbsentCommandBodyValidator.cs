@@ -1,7 +1,7 @@
 using FluentValidation;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 
-namespace Project1.Application.Absents.Commands.EditAbsent
+namespace employee_api.Application.Absents.Commands.EditAbsent
 {
     public class EditAbsentCommandBodyValidator : AbstractValidator<EditAbsentCommandBody>
     {

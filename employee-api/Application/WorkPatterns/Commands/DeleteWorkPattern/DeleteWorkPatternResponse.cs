@@ -1,6 +1,6 @@
-﻿using Project1.Models;
+﻿using employee_api.Models;
 
-namespace Project1.Application.WorkPatterns.Commands.DeleteWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern
 {
     public class DeleteWorkPatternResponse
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
-using Project1.Application.Absent.Commands.DeleteAbsent;
+using employee_api.Application.Absent.Commands.DeleteAbsent;
 
-namespace Project1.Application.Absent.Commands.DeleteAbsent
+namespace employee_api.Application.Absent.Commands.DeleteAbsent
 {
     public class DeleteAbsentCommandValidator : AbstractValidator<DeleteAbsentCommand>
     {

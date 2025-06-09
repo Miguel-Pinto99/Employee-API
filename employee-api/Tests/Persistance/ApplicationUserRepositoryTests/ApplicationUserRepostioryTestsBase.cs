@@ -1,5 +1,5 @@
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Models;
+using employee_api.Persistance;
 
 namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
 {

@@ -1,9 +1,14 @@
 using MediatR;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Data;
+using employee_api.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using employee_api.Persistance;
 
-namespace Project1.Application.Absent.Queries.GetAllAbsent
+namespace employee_api.Application.Absent.Queries.GetAllAbsent
 {
     public class GetAllAbsentHandler : IRequestHandler<GetAllAbsentCommand, GetAllAbsentResponse>
     {

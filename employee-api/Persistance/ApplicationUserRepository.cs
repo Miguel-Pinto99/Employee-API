@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Project1.Data;
-using Project1.Models;
+using employee_api.Data;
+using employee_api.Models;
 
-namespace Project1.Persistance
+namespace employee_api.Persistance
 {
     public class ApplicationUserRepository : IApplicationUsersRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace Project1.Infrastructure
+﻿namespace employee_api.Infrastructure
 {
     public interface IMqttService
     {

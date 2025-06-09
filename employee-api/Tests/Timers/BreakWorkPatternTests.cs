@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Timers;
+using Moq;
+using employee_api.Timers;
+using employee_api.Models;
 using Xunit;
+using System.Threading;
 
-namespace PVSDashboard.Tests.Timers
+namespace employee_api.Tests.Timers
 {
     public class BreakWorkPatternTests
     {

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Project1.Application.WorkPatterns.Commands.DeleteWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern
 {
     public class DeleteWorkPatternCommandValidator : AbstractValidator<DeleteWorkPatternCommand>
     {

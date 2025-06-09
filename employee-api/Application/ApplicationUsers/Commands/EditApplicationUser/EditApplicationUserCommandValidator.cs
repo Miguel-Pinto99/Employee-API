@@ -1,7 +1,7 @@
 using FluentValidation;
-using Project1.Application.ApplicationUsers.Commands.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.EditApplicationUser;
 
-namespace Project1.Application.ApplicationUsers.Queries.EditApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.EditApplicationUser
 {
     public class EditApplicationUserCommandValidator : AbstractValidator<EditApplicationUserCommand>
     {

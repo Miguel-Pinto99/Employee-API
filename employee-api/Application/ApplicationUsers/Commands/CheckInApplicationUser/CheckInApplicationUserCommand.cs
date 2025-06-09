@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Project1.Application.ApplicationUsers.Queries.CheckInApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser
 {
     public class CheckInApplicationUserCommand : IRequest<CheckInApplicationUserResponse>
     {

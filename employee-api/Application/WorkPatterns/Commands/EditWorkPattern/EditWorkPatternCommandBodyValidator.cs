@@ -1,8 +1,8 @@
 using FluentValidation;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Models;
 
-namespace Project1.Application.WorkPatterns.Commands.EditWorkPattern;
+namespace employee_api.Application.WorkPatterns.Commands.EditWorkPattern;
 
 public class EditWorkPatternCommandBodyValidator : AbstractValidator<EditWorkPatternCommandBody>
 {

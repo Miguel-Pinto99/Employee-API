@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
-using Project1.Persistance;
-using Project1.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Infrastructure;
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.EditApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetAllApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.CheckInApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
-using Project1.Application.ApplicationUsers.Commands.CreateApplicationUser;
-using Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetAllApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser;
 
-namespace Project1.Controllers
+namespace employee_api.Controllers
 {
     [ApiController]
     [Route(template: "api/v1/users")]

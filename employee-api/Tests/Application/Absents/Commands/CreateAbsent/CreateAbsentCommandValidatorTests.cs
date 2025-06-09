@@ -1,4 +1,4 @@
-using Project1.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.Absent.Commands.CreateAbsent;
 using FluentValidation.TestHelper;
 using Xunit;
 

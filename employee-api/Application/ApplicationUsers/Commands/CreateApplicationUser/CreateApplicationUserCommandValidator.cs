@@ -1,8 +1,8 @@
 using FluentValidation;
-using Project1.Application.Absent.Commands.CreateAbsent;
-using Project1.Application.ApplicationUser.Commands.CreateApplicationUser;
+using employee_api.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.ApplicationUser.Commands.CreateApplicationUser;
 
-namespace Project1.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreateApplicationUserCommandValidator : AbstractValidator<CreateApplicationUserCommand>
     {

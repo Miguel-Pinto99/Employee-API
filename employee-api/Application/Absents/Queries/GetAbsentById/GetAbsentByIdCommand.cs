@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Project1.Application.Absent.Queries.GetAbsentByIdById
+namespace employee_api.Application.Absent.Queries.GetAbsentByIdById
 {
     public class GetAbsentByIdCommand : IRequest<GetAbsentByIdResponse>
     {

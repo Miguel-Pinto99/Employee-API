@@ -3,14 +3,14 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Application.WorkPatterns.Commands.EditWorkPattern;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
-using Project1.Infrastructure;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Events.UnsEvents;
+using employee_api.Application.WorkPatterns.Commands.EditWorkPattern;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Infrastructure;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Events.UnsEvents;
 
 namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
 {
@@ -47,7 +47,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
         {
             // Arrange
 
-            var workPattern = new Project1.Models.WorkPattern
+            var workPattern = new employee_api.Models.WorkPattern
             {
                 UserId = 1,
                 Id = new Guid(),
@@ -56,18 +56,18 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
 
             };
 
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
                 OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>{workPattern}
+                WorkPatterns = new List<employee_api.Models.WorkPattern>{workPattern}
             };
 
 
             _workPatternRepositoryMock
-                .Setup(x => x.UpdateWorkPatternAsync(It.IsAny<Project1.Models.WorkPattern>(), CancellationToken.None))
+                .Setup(x => x.UpdateWorkPatternAsync(It.IsAny<employee_api.Models.WorkPattern>(), CancellationToken.None))
                 .ReturnsAsync(workPattern);
 
             _mediatorMock.Setup(x => x.Send(It.IsAny<GetApplicationUserCommand>(), CancellationToken.None))
@@ -80,7 +80,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             {
                 StartDate = new DateTime(2022, 1, 1, 0, 0, 0),
                 EndDate = new DateTime(2023, 1, 1, 0, 0, 0),
-                Parts = new List<Project1.Models.WorkPatternPart>()
+                Parts = new List<employee_api.Models.WorkPatternPart>()
             });
 
             // Act
@@ -95,7 +95,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             _mediatorMock
                  .Verify(x => x.Send(It.IsAny<GetApplicationUserCommand>(), CancellationToken.None), Times.Once);
             _workPatternRepositoryMock
-                .Verify(x => x.UpdateWorkPatternAsync(It.IsAny<Project1.Models.WorkPattern>(),CancellationToken.None), Times.Once);
+                .Verify(x => x.UpdateWorkPatternAsync(It.IsAny<employee_api.Models.WorkPattern>(),CancellationToken.None), Times.Once);
         }
     }
 }

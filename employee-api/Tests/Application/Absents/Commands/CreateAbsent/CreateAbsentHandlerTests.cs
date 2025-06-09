@@ -7,11 +7,11 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.Absent.Commands.CreateAbsent;
-using Project1.Persistance;
+using employee_api.Application.Absent.Commands.CreateAbsent;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Models;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Models;
+using employee_api.Events.AbsentLogicEvents;
 
 namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
 {
@@ -46,7 +46,7 @@ namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
         public async Task HandleShouldCallCreateAbsentAsyncOnAbsentRepository_WhenCommandIsSet()
         {
             // Arrange
-            var absent = new Project1.Models.Absent
+            var absent = new employee_api.Models.Absent
             {
                 Id = Guid.NewGuid(),
                 UserId = 1,
@@ -55,7 +55,7 @@ namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
             };
 
             _absentRepositoryMock
-                .Setup(x => x.CreateAbsentAsync(It.IsAny<Project1.Models.Absent>(), CancellationToken.None))
+                .Setup(x => x.CreateAbsentAsync(It.IsAny<employee_api.Models.Absent>(), CancellationToken.None))
                 .ReturnsAsync(absent);
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<AbsentLogicEvent>(), CancellationToken.None))
@@ -78,7 +78,7 @@ namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
                 .Verify(x => x.Publish(It.IsAny<AbsentLogicEvent>(), CancellationToken.None), Times.Once);
 
             _absentRepositoryMock
-                .Verify(x => x.CreateAbsentAsync(It.IsAny<Project1.Models.Absent>(),CancellationToken.None), Times.Once);
+                .Verify(x => x.CreateAbsentAsync(It.IsAny<employee_api.Models.Absent>(),CancellationToken.None), Times.Once);
         }
     }
 }

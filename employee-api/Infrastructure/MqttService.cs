@@ -1,7 +1,7 @@
 using MQTTnet.Client;
 using MQTTnet;
 
-namespace Project1.Infrastructure
+namespace employee_api.Infrastructure
 {
     public class MqttService : IMqttService
     {

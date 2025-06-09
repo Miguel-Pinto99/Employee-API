@@ -1,8 +1,8 @@
-using Project1.Data;
-using Project1.Models;
+using employee_api.Data;
+using employee_api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Project1.Persistance
+namespace employee_api.Persistance
 {
     public class AbsentRepository : IAbsentRepository
     {

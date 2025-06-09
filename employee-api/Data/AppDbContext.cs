@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Project1.Models;
+using employee_api.Models;
 using System.Collections.Generic;
 using System.Data.Common;
 
 
-namespace Project1.Data
+namespace employee_api.Data
 {
     public class AppDbContext : DbContext //Connection to the Database. Blackbox....
     {

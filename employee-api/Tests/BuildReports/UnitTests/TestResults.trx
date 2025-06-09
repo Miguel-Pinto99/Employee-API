@@ -56,7 +56,7 @@ All invocations on the mock must have a corresponding setup.</Message>
    at Moq.CastleProxyFactory.Interceptor.Intercept(IInvocation underlying) in C:\projects\moq4\src\Moq\Interception\CastleProxyFactory.cs:line 107&#xD;
    at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;
    at Castle.Proxies.ITimerServiceProxy.RemoveAbsentsAsync(List`1 listAllAbsentss, CancellationToken cancellationToken)&#xD;
-   at Project1.Application.EventHandlers.AbsentLogic.AbsentLogicEventHandler.Handle(AbsentLogicEvent notification, CancellationToken cancellationToken) in C:\Users\MPIN\source\repos\miguel-pvs\Project1\Application\EventHandlers\AbsentLogic\AbsentLogicEventHandler.cs:line 42&#xD;
+   at employee_api.Application.EventHandlers.AbsentLogic.AbsentLogicEventHandler.Handle(AbsentLogicEvent notification, CancellationToken cancellationToken) in C:\Users\MPIN\source\repos\miguel-pvs\Project1\Application\EventHandlers\AbsentLogic\AbsentLogicEventHandler.cs:line 42&#xD;
    at PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers.AbsentLogicEventHandlerTests.HandleShouldCallAbsentLogicEventAsyncOnApplicationUserRepository_WhenCommandIsSet() in C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\Application\EventHandlers\AbsentLogicEventHandlers\AbsentLogicEventHandlerTests.cs:line 118&#xD;
 --- End of stack trace from previous location ---</StackTrace>
         </ErrorInfo>
@@ -577,7 +577,7 @@ All invocations on the mock must have a corresponding setup.</Message>
     </UnitTest>
     <UnitTest name="Handle should call PublishWorkPatternEventAsync on ApplicationUserRepository" storage="c:\users\mpin\source\repos\miguel-pvs\pvsdashboard.tests\bin\debug\net6.0\pvsdashboard.tests.dll" id="beee40a8-75cf-4d8d-4792-c2e218a384ee">
       <Execution id="4ac14884-9614-4e90-aa94-2fa74bbbfb51" />
-      <TestMethod codeBase="C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\bin\Debug\net6.0\PVSDashboard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Project1.Application.EventHandlers.DeleteTopicApplicationUserEventHandlerTests" name="HandleShouldCallPublishWorkPatternEventAsyncOnApplicationUserRepository_WhenCommandIsSet" />
+      <TestMethod codeBase="C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\bin\Debug\net6.0\PVSDashboard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="employee_api.Application.EventHandlers.DeleteTopicApplicationUserEventHandlerTests" name="HandleShouldCallPublishWorkPatternEventAsyncOnApplicationUserRepository_WhenCommandIsSet" />
     </UnitTest>
     <UnitTest name="OverLapTodayTestsAsync should return one part" storage="c:\users\mpin\source\repos\miguel-pvs\pvsdashboard.tests\bin\debug\net6.0\pvsdashboard.tests.dll" id="68c3fcc4-3bc3-3499-8cf2-ccef8262d7cd">
       <Execution id="fdec0112-80e4-4f3e-82e1-aba73a854756" />
@@ -793,7 +793,7 @@ All invocations on the mock must have a corresponding setup.</Message>
     </UnitTest>
     <UnitTest name="Handle should throw ArgumentNullException when command is not set" storage="c:\users\mpin\source\repos\miguel-pvs\pvsdashboard.tests\bin\debug\net6.0\pvsdashboard.tests.dll" id="44963f54-2793-108a-6e87-949487fc0e3f">
       <Execution id="ea589e3d-a785-41f6-a89a-12f36c5ae07b" />
-      <TestMethod codeBase="C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\bin\Debug\net6.0\PVSDashboard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Project1.Application.EventHandlers.DeleteTopicApplicationUserEventHandlerTests" name="HandleShouldThrowArgumentNullException_WhenCommandIsNotSet" />
+      <TestMethod codeBase="C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\bin\Debug\net6.0\PVSDashboard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="employee_api.Application.EventHandlers.DeleteTopicApplicationUserEventHandlerTests" name="HandleShouldThrowArgumentNullException_WhenCommandIsNotSet" />
     </UnitTest>
     <UnitTest name="Handle should call StopTimerEventAsync on TimerService" storage="c:\users\mpin\source\repos\miguel-pvs\pvsdashboard.tests\bin\debug\net6.0\pvsdashboard.tests.dll" id="dc9ae7ff-9dae-bc7f-6804-10728c8db5a8">
       <Execution id="d2789fd1-edbe-4dbc-b4c6-c6a86b485751" />
@@ -1658,7 +1658,7 @@ All invocations on the mock must have a corresponding setup.&#xD;
 [xUnit.net 00:00:04.34]         C:\projects\moq4\src\Moq\Interception\CastleProxyFactory.cs(107,0): at Moq.CastleProxyFactory.Interceptor.Intercept(IInvocation underlying)&#xD;
 [xUnit.net 00:00:04.34]            at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;
 [xUnit.net 00:00:04.34]            at Castle.Proxies.ITimerServiceProxy.RemoveAbsentsAsync(List`1 listAllAbsentss, CancellationToken cancellationToken)&#xD;
-[xUnit.net 00:00:04.34]         C:\Users\MPIN\source\repos\miguel-pvs\Project1\Application\EventHandlers\AbsentLogic\AbsentLogicEventHandler.cs(42,0): at Project1.Application.EventHandlers.AbsentLogic.AbsentLogicEventHandler.Handle(AbsentLogicEvent notification, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:04.34]         C:\Users\MPIN\source\repos\miguel-pvs\Project1\Application\EventHandlers\AbsentLogic\AbsentLogicEventHandler.cs(42,0): at employee_api.Application.EventHandlers.AbsentLogic.AbsentLogicEventHandler.Handle(AbsentLogicEvent notification, CancellationToken cancellationToken)&#xD;
 [xUnit.net 00:00:04.34]         C:\Users\MPIN\source\repos\miguel-pvs\PVSDashboard.Tests\Application\EventHandlers\AbsentLogicEventHandlers\AbsentLogicEventHandlerTests.cs(118,0): at PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers.AbsentLogicEventHandlerTests.HandleShouldCallAbsentLogicEventAsyncOnApplicationUserRepository_WhenCommandIsSet()&#xD;
 [xUnit.net 00:00:04.34]         --- End of stack trace from previous location ---&#xD;
 [xUnit.net 00:00:04.79]   Finished:    PVSDashboard.Tests&#xD;

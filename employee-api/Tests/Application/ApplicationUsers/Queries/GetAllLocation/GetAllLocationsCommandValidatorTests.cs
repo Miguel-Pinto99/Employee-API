@@ -1,6 +1,6 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.GetAllLocation;
-using Project1.Application.WorkPatterns.Queries.GetAllWorkPattern;
+using employee_api.Application.ApplicationUsers.Queries.GetAllLocation;
+using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllLocation

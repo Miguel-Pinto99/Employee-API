@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Project1.Migrations
+namespace employee_api.Migrations
 {
     public partial class removeWPAbsent : Migration
     {

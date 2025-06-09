@@ -1,5 +1,5 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.CheckInApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser

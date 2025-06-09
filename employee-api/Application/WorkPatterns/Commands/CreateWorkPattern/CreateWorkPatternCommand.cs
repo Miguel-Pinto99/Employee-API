@@ -1,8 +1,8 @@
 using MediatR;
-using Project1.Models;
+using employee_api.Models;
 using System.Text.Json.Serialization;
 
-namespace Project1.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.CreateWorkPattern
 {
 
     public class CreateWorkPatternCommand : IRequest<CreateWorkPatternResponse>

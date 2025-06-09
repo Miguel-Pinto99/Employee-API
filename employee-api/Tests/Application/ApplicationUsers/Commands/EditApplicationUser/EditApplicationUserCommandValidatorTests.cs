@@ -1,6 +1,6 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Commands.EditApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicationUser

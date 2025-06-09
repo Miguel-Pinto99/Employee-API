@@ -1,11 +1,11 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Models;
+using employee_api.Timers;
 
-namespace Project1.Application.Uns.UnsLogicEventHandlers
+namespace employee_api.Application.Uns.UnsLogicEventHandlers
 {
     public class CreateWorkPatternUnsLogicEventHandler : INotificationHandler<CreateWorkPatternLogicEvent>
     {

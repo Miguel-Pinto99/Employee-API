@@ -1,6 +1,6 @@
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Infrastructure
+namespace employee_api.Infrastructure
 {
     public interface IUnsService
     {

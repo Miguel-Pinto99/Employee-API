@@ -2,12 +2,12 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.Uns.UnsLogicEventHandlers;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.Uns.UnsLogicEventHandlers;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
@@ -73,9 +73,9 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 WorkPatterns = listWorkPatterns
             };
 
-            var listAllAbsents = new List<Project1.Models.Absent>
+            var listAllAbsents = new List<employee_api.Models.Absent>
             {
-                new Project1.Models.Absent
+                new employee_api.Models.Absent
                 {
                     UserId= 1,
                     Id = new Guid(),

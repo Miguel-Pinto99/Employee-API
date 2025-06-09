@@ -1,6 +1,6 @@
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Application.ApplicationUsers.Queries.EditApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.EditApplicationUser
 {
     public class EditApplicationUserResponse
     {

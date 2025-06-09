@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace Project1.Application.WorkPatterns.Queries.GetAllWorkPattern
+namespace employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern
 {
     public class GetAllWorkPatternHandler : IRequestHandler<GetAllWorkPatternCommand, GetAllWorkPatternResponse>
     {

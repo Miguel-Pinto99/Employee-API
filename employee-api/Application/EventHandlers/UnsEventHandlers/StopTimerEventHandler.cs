@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Events.UnsEvents;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Events.UnsEvents;
+using employee_api.Models;
+using employee_api.Timers;
 
-namespace Project1.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Application.EventHandlers.UnsEventHandlers
 {
     public class StopTimerEventHandler : INotificationHandler<StopTimerEvent>
     {

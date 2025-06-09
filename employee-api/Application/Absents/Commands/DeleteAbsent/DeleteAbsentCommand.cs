@@ -1,7 +1,7 @@
 using MediatR;
-using Project1.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.Absent.Commands.CreateAbsent;
 
-namespace Project1.Application.Absent.Commands.DeleteAbsent
+namespace employee_api.Application.Absent.Commands.DeleteAbsent
 {
     public class DeleteAbsentCommand : IRequest<DeleteAbsentResponse>
     {

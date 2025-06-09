@@ -1,8 +1,8 @@
-using Project1.Infrastructure;
-using Project1.Persistance;
-using Project1.Timers;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Timers;
 
-namespace Project1.Workers
+namespace employee_api.Workers
 {
     public class UnsWorker : BackgroundService
     {

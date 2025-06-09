@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Project1.Application.ApplicationUsers.Queries.GetApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.GetApplicationUser
 {
     public class GetApplicationUserCommandValidator : AbstractValidator<GetApplicationUserCommand>
     {

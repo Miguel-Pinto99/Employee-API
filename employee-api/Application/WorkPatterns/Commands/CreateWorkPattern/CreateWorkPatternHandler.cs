@@ -1,12 +1,12 @@
 using MediatR;
-using Project1.Application.WorkPatterns.Queries.GetWorkPattern;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Application.WorkPatterns.Queries.GetWorkPattern;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace Project1.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternHandler : IRequestHandler<CreateWorkPatternCommand, CreateWorkPatternResponse>
     {

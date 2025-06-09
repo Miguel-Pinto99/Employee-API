@@ -1,6 +1,6 @@
-using Project1.Application.Exceptions;
+using employee_api.Application.Exceptions;
 
-namespace Project1.Exceptions
+namespace employee_api.Exceptions
 {
     public class ApiExceptionsMiddleware
     {

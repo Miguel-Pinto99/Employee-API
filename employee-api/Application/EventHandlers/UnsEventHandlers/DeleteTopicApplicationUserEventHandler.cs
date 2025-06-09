@@ -1,10 +1,10 @@
 using MediatR;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
 using System.Threading;
 
-namespace Project1.Application.EventHandlers
+namespace employee_api.Application.EventHandlers
 {
     public class DeleteTopicApplicationUserEventHandler: INotificationHandler<DeleteTopicApplicationUserEvent>
     {

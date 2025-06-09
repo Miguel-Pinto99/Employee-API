@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Project1.Application.ApplicationUsers.Queries.GetAllLocation
+namespace employee_api.Application.ApplicationUsers.Queries.GetAllLocation
 {
     public class GetAllLocationCommandValidator : AbstractValidator<GetAllLocationCommand>
     {

@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
 
 
-namespace Project1.Application.Uns.EventHandlers
+namespace employee_api.Application.Uns.EventHandlers
 {
     public class PublishCheckInEventHandler : INotificationHandler<PublishCheckInEvent>
     {

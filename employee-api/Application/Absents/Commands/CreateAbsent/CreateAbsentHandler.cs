@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Infrastructure;
-using Project1.Persistance;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Events.AbsentLogicEvents;
 
-namespace Project1.Application.Absent.Commands.CreateAbsent
+namespace employee_api.Application.Absent.Commands.CreateAbsent
 {
     public class CreateAbsentHandler : IRequestHandler<CreateAbsentCommand, CreateAbsentResponse>
     {

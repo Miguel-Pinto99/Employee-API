@@ -1,5 +1,5 @@
-using Project1.Models;
-namespace Project1.Application.Absent.Commands.CreateAbsent
+using employee_api.Models;
+namespace employee_api.Application.Absent.Commands.CreateAbsent
 {
     public class CreateAbsentResponse
     {

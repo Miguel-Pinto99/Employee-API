@@ -1,9 +1,13 @@
 using MediatR;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Data;
+using employee_api.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using employee_api.Persistance;
 
-namespace Project1.Application.ApplicationUsers.Queries.GetApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.GetApplicationUser
 {
     public class GetApplicationUserHandler : IRequestHandler<GetApplicationUserCommand, GetApplicationUserResponse>
     {

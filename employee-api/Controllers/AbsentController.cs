@@ -1,23 +1,23 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Project1.Models;
-using Project1.Data;
-using Project1.Persistance;
+using employee_api.Models;
+using employee_api.Data;
+using employee_api.Persistance;
 using MQTTnet.Client;
 using MQTTnet;
 using Newtonsoft.Json;
-using Project1.Infrastructure;
+using employee_api.Infrastructure;
 using System.ComponentModel;
 using MediatR;
-using Project1.Application.Absent.Commands.CreateAbsent;
-using Project1.Application.Absent.Queries.GetAllAbsent;
-using Project1.Application.Absent.Commands.EditAbsent;
-using Project1.Application.Absent.Queries.GetAbsent;
-using Project1.Application.Absent.Commands.DeleteAbsent;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Application.Absent.Queries.GetAbsentByIdById;
+using employee_api.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.Absent.Queries.GetAllAbsent;
+using employee_api.Application.Absent.Commands.EditAbsent;
+using employee_api.Application.Absent.Queries.GetAbsent;
+using employee_api.Application.Absent.Commands.DeleteAbsent;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.Absent.Queries.GetAbsentByIdById;
 
-namespace Project1.Controllers
+namespace employee_api.Controllers
 {
 
     [ApiController]

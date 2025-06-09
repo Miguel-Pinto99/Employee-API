@@ -2,11 +2,11 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.Absent.Commands.EditAbsent;
-using Project1.Persistance;
+using employee_api.Application.Absent.Commands.EditAbsent;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Events.AbsentLogicEvents;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Events.AbsentLogicEvents;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 
 namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
 {
@@ -41,7 +41,7 @@ namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
         public async Task HandleShouldCallEditAbsentAsyncOnAbsentRepository_WhenCommandIsSet()
         {
             // Arrange
-            var absent = new Project1.Models.Absent
+            var absent = new employee_api.Models.Absent
             {
                 Id = Guid.NewGuid(),
                 UserId = 1,
@@ -50,7 +50,7 @@ namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
             };
 
             _absentRepositoryMock
-                .Setup(x => x.UpdateAbsentAsync(It.IsAny<Project1.Models.Absent>(), CancellationToken.None))
+                .Setup(x => x.UpdateAbsentAsync(It.IsAny<employee_api.Models.Absent>(), CancellationToken.None))
                 .ReturnsAsync(absent);
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<AbsentLogicEvent>(), CancellationToken.None))
@@ -73,7 +73,7 @@ namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
                 .Verify(x => x.Publish(It.IsAny<AbsentLogicEvent>(), CancellationToken.None), Times.Once);
 
             _absentRepositoryMock
-                .Verify(x => x.UpdateAbsentAsync(It.IsAny<Project1.Models.Absent>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.UpdateAbsentAsync(It.IsAny<employee_api.Models.Absent>(), CancellationToken.None), Times.Once);
         }
     }
 }

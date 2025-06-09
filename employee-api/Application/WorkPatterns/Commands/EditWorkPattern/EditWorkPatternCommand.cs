@@ -1,7 +1,7 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 
-namespace Project1.Application.WorkPatterns.Commands.EditWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.EditWorkPattern
 {
     public class EditWorkPatternCommand : IRequest<EditWorkPatternResponse>
     {

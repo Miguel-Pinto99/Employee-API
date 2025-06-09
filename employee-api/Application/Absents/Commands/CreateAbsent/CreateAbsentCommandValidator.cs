@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Project1.Application.Absent.Commands.CreateAbsent
+namespace employee_api.Application.Absent.Commands.CreateAbsent
 {
     public class CreateAbsentCommandValidator : AbstractValidator<CreateAbsentCommand>
     {

@@ -1,11 +1,11 @@
 using FluentAssertions;
 using Moq;
 using Newtonsoft.Json;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Infrastructure;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Infrastructure
+namespace employee_api.Tests.Infrastructure
 {
     public class CheckInApplicationUserTests
     {

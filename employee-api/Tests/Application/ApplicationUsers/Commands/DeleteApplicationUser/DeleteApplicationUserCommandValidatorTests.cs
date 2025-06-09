@@ -1,5 +1,5 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.DeleteApplicationUser

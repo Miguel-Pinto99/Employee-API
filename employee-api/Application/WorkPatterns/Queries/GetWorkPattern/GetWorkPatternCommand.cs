@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Project1.Application.WorkPatterns.Queries.GetWorkPattern
+namespace employee_api.Application.WorkPatterns.Queries.GetWorkPattern
 {
     public class GetWorkPatternCommand : IRequest<GetWorkPatternResponse>
     {

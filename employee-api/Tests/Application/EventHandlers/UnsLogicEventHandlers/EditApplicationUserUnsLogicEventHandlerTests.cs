@@ -2,14 +2,14 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
-using Project1.Application.EventHandlers.UnsLogicEventHandlers;
+using employee_api.Application.EventHandlers.UnsLogicEventHandlers;
 
 namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
 {
@@ -83,9 +83,9 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 WorkPatterns = listWorkPatterns
             };
 
-            var listAllEditApplicationUsers = new List<Project1.Models.WorkPattern>
+            var listAllEditApplicationUsers = new List<employee_api.Models.WorkPattern>
             {
-                new Project1.Models.WorkPattern
+                new employee_api.Models.WorkPattern
                 {
                     UserId= 1,
                     Id = new Guid(),

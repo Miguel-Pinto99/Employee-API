@@ -1,5 +1,5 @@
-using Project1.Data;
-using Project1.Models;
+using employee_api.Data;
+using employee_api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MQTTnet.Client;
@@ -7,7 +7,7 @@ using MQTTnet;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
 
-namespace Project1.Persistance
+namespace employee_api.Persistance
 {
     public class WorkPatternRepository : IWorkPatternRepository
     {

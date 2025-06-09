@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Project1.Application.ApplicationUsers.Queries.EditApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.EditApplicationUser
 {
     public class EditApplicationUserCommandBody
     {

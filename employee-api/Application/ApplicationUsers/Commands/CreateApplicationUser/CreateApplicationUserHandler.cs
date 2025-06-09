@@ -1,8 +1,8 @@
 using MediatR;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
 
-namespace Project1.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreateApplicationUserHandler : IRequestHandler<CreateApplicationUserCommand, CreateApplicationUserResponse>
     {

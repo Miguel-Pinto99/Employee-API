@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace Project1.Application.ApplicationUsers.Queries.GetAllLocation
+namespace employee_api.Application.ApplicationUsers.Queries.GetAllLocation
 {
     public class GetAllLocationHandler : IRequestHandler<GetAllLocationCommand, GetAllLocationResponse>
     {

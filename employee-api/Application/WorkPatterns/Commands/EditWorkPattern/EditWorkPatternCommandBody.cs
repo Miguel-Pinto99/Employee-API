@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Application.ApplicationUsers.Queries.EditWorkPatterm
+namespace employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm
 {
     public class EditWorkPatternCommandBody
     {

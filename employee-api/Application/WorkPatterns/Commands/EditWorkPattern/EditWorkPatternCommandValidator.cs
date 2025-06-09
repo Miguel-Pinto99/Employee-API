@@ -1,7 +1,7 @@
 using FluentValidation;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
 
-namespace Project1.Application.WorkPatterns.Commands.EditWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.EditWorkPattern
 {
     public class EditWorkPatternCommandValidator : AbstractValidator<EditWorkPatternCommand>
     {

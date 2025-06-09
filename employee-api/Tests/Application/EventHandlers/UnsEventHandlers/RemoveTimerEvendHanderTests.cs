@@ -1,12 +1,12 @@
 using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
-using Project1.Application.EventHandlers.UnsEventHandlers;
-using Project1.Events.UnsEvents;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Application.EventHandlers.UnsEventHandlers;
+using employee_api.Events.UnsEvents;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
-using Project1.Application.Uns.UnsLogicEventHandlers;
+using employee_api.Application.Uns.UnsLogicEventHandlers;
 
 namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
 {

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser
 {
     public class DeleteApplicationUserCommandValidator : AbstractValidator<DeleteApplicationUserCommand>
     {

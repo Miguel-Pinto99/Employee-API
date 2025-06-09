@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Project1.Models;
+using employee_api.Models;
 using Microsoft.AspNetCore.Http;
-using Project1.Data;
-using Project1.Persistance;
+using employee_api.Data;
+using employee_api.Persistance;
 
-namespace Project1.Persistance
+namespace employee_api.Persistance
 {
     public interface IWorkPatternRepository
     {

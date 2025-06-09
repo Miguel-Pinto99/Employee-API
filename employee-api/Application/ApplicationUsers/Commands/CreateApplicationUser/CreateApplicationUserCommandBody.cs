@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Project1.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreateApplicationUserCommandBody
     {

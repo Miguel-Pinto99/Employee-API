@@ -1,9 +1,13 @@
 using FluentAssertions;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace PVSDashboard.Tests.Timers
+namespace employee_api.Tests.Timers
 {
     public class CheckIfInsideWorkPatternTests
     {

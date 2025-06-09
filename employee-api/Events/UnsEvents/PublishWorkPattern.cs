@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Events.UnsEvents
+namespace employee_api.Events.UnsEvents
 {
     public class PublishWorkPatternEvent : INotification
     {

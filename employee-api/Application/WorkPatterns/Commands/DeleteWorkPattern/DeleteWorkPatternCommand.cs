@@ -1,7 +1,7 @@
 using MediatR;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
 
-namespace Project1.Application.WorkPatterns.Commands.DeleteWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern
 {
     public class DeleteWorkPatternCommand : IRequest<DeleteWorkPatternResponse>
     {

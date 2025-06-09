@@ -1,17 +1,23 @@
+using employee_api.Models;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.WorkPatterns.Queries.GetAllWorkPattern;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace Project1.Timers
+namespace employee_api.Timers
 {
     public class TimerService : ITimerService, IDisposable
     {

@@ -2,9 +2,9 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
 using Xunit;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Persistance;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Persistance;
+using employee_api.Models;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
 {

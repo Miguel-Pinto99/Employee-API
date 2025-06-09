@@ -1,10 +1,10 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace Project1.Application.Absent.Queries.GetAbsent
+namespace employee_api.Application.Absent.Queries.GetAbsent
 {
     public class GetAbsentHandler : IRequestHandler<GetAbsentCommand, GetAbsentResponse>
     {

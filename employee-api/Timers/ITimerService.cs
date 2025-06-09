@@ -1,6 +1,6 @@
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Timers
+namespace employee_api.Timers
 {
     public interface ITimerService
     {

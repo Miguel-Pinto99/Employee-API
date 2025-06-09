@@ -1,9 +1,9 @@
 using MediatR;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
 
-namespace Project1.Application.Uns.EventHandlers
+namespace employee_api.Application.Uns.EventHandlers
 {
     public class PublishWorkPatternEventHandler : INotificationHandler<PublishWorkPatternEvent>
     {

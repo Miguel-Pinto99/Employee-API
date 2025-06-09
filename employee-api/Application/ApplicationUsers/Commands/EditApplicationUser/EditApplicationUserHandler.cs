@@ -1,15 +1,15 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.EditApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Models;
-using Project1.Persistance;
-using Project1.Events;
-using Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
+using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Models;
+using employee_api.Persistance;
+using employee_api.Events;
+using employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
 
-namespace Project1.Application.ApplicationUsers.Commands.EditApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.EditApplicationUser
 {
     public class EditApplicationUserHandler : IRequestHandler<EditApplicationUserCommand, EditApplicationUserResponse>
     {

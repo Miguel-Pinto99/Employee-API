@@ -1,5 +1,5 @@
 using FluentValidation.TestHelper;
-using Project1.Application.WorkPatterns.Commands.DeleteWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern

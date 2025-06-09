@@ -1,5 +1,5 @@
 using FluentValidation.TestHelper;
-using Project1.Application.WorkPatterns.Queries.GetWorkPattern;
+using employee_api.Application.WorkPatterns.Queries.GetWorkPattern;
 using Xunit;
 
 namespace PVSDashboard.Tests.Application.WorkPatterns.Queries.GetWorkPattern

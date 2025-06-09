@@ -3,9 +3,9 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Persistance;
-using Project1.Application.ApplicationUsers.Queries.CheckInApplicationUser;
-using Project1.Events.UnsEvents;
+using employee_api.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser;
+using employee_api.Events.UnsEvents;
 
 namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser
 {
@@ -40,13 +40,13 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckInApplic
         public async Task HandleShouldCallCheckInApplicationUserAsyncOnApplicationUserRepository_WhenCommandIsSet()
         {
             // Arrange
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
                 OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>()
+                WorkPatterns = new List<employee_api.Models.WorkPattern>()
             };
 
             _applicationUserRepositoryMock

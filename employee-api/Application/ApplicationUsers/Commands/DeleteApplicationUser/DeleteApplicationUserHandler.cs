@@ -1,13 +1,13 @@
 using MediatR;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Events;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Infrastructure;
-using Project1.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Events;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
 
-namespace Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser
+namespace employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser
 {
     public class DeleteApplicationUserHandler : IRequestHandler<DeleteApplicationUserCommand, DeleteApplicationUserResponse>
     {

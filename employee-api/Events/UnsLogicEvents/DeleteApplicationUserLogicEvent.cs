@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Events.UnsLogicEvents
+namespace employee_api.Events.UnsLogicEvents
 {
     public class DeleteApplicationUserLogicEvent : INotification
     {

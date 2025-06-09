@@ -1,4 +1,4 @@
-namespace Project1.Models
+namespace employee_api.Models
 {
     public class AbsentEachDay
     {

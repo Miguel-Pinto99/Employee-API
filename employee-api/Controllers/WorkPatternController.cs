@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
-using Project1.Data;
-using Project1.Persistance;
-using Project1.Infrastructure;
+using employee_api.Data;
+using employee_api.Persistance;
+using employee_api.Infrastructure;
 using MediatR;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
-using Project1.Application.WorkPatterns.Commands.DeleteWorkPattern;
-using Project1.Application.WorkPatterns.Commands.EditWorkPattern;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Application.WorkPatterns.Queries.GetAllWorkPattern;
-using Project1.Application.WorkPatterns.Queries.GetWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern;
+using employee_api.Application.WorkPatterns.Commands.EditWorkPattern;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
+using employee_api.Application.WorkPatterns.Queries.GetWorkPattern;
 
-namespace Project1.Controllers
+namespace employee_api.Controllers
 {
     [ApiController]
     [Route(template: "api/v1/work-patterns")]

@@ -1,4 +1,4 @@
-﻿using Project1;
+﻿using employee_api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-
-
-namespace Project1.Models
+namespace employee_api.Models
 {
     public class ApplicationUser 
     {

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Project1.Application.Absent.Queries.GetAbsentByIdById
+namespace employee_api.Application.Absent.Queries.GetAbsentByIdById
 {
     public class GetAbsentByIdCommandValidator : AbstractValidator<GetAbsentByIdCommand>
     {

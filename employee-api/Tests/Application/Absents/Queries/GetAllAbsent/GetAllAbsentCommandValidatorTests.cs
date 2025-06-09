@@ -1,6 +1,6 @@
 using FluentValidation.TestHelper;
 using Xunit;
-using Project1.Application.Absent.Queries.GetAllAbsent;
+using employee_api.Application.Absent.Queries.GetAllAbsent;
 
 namespace PVSDashboard.Tests.Application.Absents.Queries.GetAllAbsent
 {

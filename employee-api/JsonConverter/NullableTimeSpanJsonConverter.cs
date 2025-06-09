@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Project1.JsonConverter
+namespace employee_api.JsonConverter
 {
     public class NullableTimeSpanJsonConverter : JsonConverter<TimeSpan?>
     {

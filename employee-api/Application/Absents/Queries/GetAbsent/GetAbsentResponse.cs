@@ -1,6 +1,6 @@
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Application.Absent.Queries.GetAbsent
+namespace employee_api.Application.Absent.Queries.GetAbsent
 {
     public class GetAbsentResponse
     {

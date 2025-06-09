@@ -1,6 +1,6 @@
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Application.Absent.Commands.EditAbsent
+namespace employee_api.Application.Absent.Commands.EditAbsent
 {
     public class EditAbsentResponse
     {

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Project1.Application.ApplicationUsers.Queries.CheckOutApplicationUser
+namespace employee_api.Application.ApplicationUsers.Queries.CheckOutApplicationUser
 {
     public class CheckOutApplicationUserCommandValidator : AbstractValidator<CheckOutApplicationUserCommand>
     {

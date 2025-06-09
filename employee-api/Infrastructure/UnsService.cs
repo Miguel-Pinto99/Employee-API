@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using FluentAssertions.Execution;
 using Newtonsoft.Json;
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Infrastructure
+namespace employee_api.Infrastructure
 {
     public class UnsService : IUnsService
     {

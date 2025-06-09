@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Project1.Models;
+using employee_api.Models;
 
-namespace Project1.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternCommandBody
     {

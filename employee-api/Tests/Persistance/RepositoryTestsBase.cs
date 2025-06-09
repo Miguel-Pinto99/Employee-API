@@ -1,11 +1,11 @@
+using employee_api.Data;
+using employee_api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Project1.Data;
-using Project1.Persistance;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PVSDashboard.Tests.Persistance
+namespace employee_api.Tests.Persistance
 {
     public class RepositoryTestsBase : IDisposable
     {

@@ -1,11 +1,11 @@
-using Project1.Data;
-using Project1.Models;
+using employee_api.Data;
+using employee_api.Models;
 using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
-using Project1.Persistance;
+using employee_api.Persistance;
 
 namespace PVSDashboard.Tests.Persistance.AbsentRepositoryTests
 {

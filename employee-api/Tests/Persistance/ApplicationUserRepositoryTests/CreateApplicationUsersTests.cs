@@ -1,14 +1,14 @@
-using Project1.Data;
-using Project1.Models;
+using employee_api.Data;
+using employee_api.Models;
 using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Events.AbsentLogicEvents;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
-using Project1.Infrastructure;
-using Project1.Persistance;
-using Project1.Application.ApplicationUsers.Commands.CreateApplicationUser;
+using employee_api.Infrastructure;
+using employee_api.Persistance;
+using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using System.Reflection.Metadata;
 
 namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
