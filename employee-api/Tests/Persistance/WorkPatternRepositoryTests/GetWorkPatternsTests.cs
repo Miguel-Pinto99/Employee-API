@@ -2,7 +2,7 @@ using employee_api.Models;
 using FluentAssertions;
 using Xunit;
 
-namespace PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests
+namespace employee_api.Tests.Persistance.WorkPatternRepositoryTests
 {
     public class GetWorkPatternsTests : WorkPatternRepositoryTestsBase
     {

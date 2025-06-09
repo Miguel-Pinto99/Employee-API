@@ -7,7 +7,7 @@ using Xunit;
 using Microsoft.EntityFrameworkCore;
 using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
+namespace employee_api.Tests.Persistance.ApplicationUserRepositoryTests
 {
     public class GetApplicationUsersTests : ApplicationUserRepositoryTestsBase
     {

@@ -8,7 +8,7 @@ using employee_api.Persistance;
 using employee_api.Events.UnsLogicEvents;
 using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
 {
     public class EditApplicationUserHandlerTests
     {

@@ -5,7 +5,7 @@ using employee_api.Application.Absent.Commands.EditAbsent;
 using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 using employee_api.Application.Absents.Commands.EditAbsent;
 
-namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
+namespace employee_api.Tests.Application.Absents.Commands.EditAbsent
 {
     public class EditAbsentCommandValidatorTests
     {

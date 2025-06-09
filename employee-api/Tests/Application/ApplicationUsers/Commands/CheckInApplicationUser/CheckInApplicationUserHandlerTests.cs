@@ -7,7 +7,7 @@ using employee_api.Persistance;
 using employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser;
 using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser
 {
     public class CheckInApplicationUserHandlerTests
     {

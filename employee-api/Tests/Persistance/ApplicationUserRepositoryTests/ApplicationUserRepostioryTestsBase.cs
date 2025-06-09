@@ -1,7 +1,7 @@
 using employee_api.Models;
 using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
+namespace employee_api.Tests.Persistance.ApplicationUserRepositoryTests
 {
     public class ApplicationUserRepositoryTestsBase : RepositoryTestsBase
     {

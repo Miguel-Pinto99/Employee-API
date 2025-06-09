@@ -2,7 +2,7 @@ using FluentValidation.TestHelper;
 using employee_api.Application.Absent.Queries.GetAbsent;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.Absents.Queries.GetAbsent
+namespace employee_api.Tests.Application.Absents.Queries.GetAbsent
 {
     public class GetAbsentCommandValidatorTests
     {

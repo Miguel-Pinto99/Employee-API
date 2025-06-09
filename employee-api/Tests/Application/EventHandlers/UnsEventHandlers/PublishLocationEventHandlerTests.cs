@@ -14,7 +14,7 @@ using Xunit;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsEventHandlers
 {
     public class PublishLocationEventHandlerTests
     {

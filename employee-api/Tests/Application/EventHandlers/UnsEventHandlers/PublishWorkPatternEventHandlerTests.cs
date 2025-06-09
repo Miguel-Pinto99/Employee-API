@@ -10,7 +10,7 @@ using employee_api.Application.Uns.EventHandlers;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsEventHandlers
 {
     public class PublishWorkPatternEventHandlerTests
     {

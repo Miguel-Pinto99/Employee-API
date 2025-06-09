@@ -8,7 +8,7 @@ using employee_api.Persistance;
 using employee_api.Events.UnsLogicEvents;
 using employee_api.Infrastructure;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternHandlerTests
     {

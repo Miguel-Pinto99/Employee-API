@@ -7,7 +7,7 @@ using employee_api.Timers;
 using Xunit;
 using employee_api.Application.EventHandlers.UnsEventHandlers;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsEventHandlers
 {
     public class StopTimerEventHandlerEventHandler
     {

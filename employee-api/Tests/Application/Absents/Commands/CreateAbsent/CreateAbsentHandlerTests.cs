@@ -13,7 +13,7 @@ using Xunit;
 using employee_api.Models;
 using employee_api.Events.AbsentLogicEvents;
 
-namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
+namespace employee_api.Tests.Application.Absent.Commands.CreateAbsent
 {
     public class CreateAbsentHandlerTests
     {

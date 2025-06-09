@@ -6,9 +6,9 @@ using Moq;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
 using employee_api.Persistance;
-using PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests;
+using employee_api.Tests.Persistance.WorkPatternRepositoryTests;
 
-namespace PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests
+namespace employee_api.Tests.Persistance.WorkPatternRepositoryTests
 {
     public class GetAllWorkPatternsTests : WorkPatternRepositoryTestsBase
     {

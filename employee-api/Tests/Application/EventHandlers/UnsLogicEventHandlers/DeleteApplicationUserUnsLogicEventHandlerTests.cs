@@ -11,7 +11,7 @@ using employee_api.Infrastructure;
 using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsLogicEventHandlers
 {
     public class DeleteApplicationUserUnsLogicEventHandlerTests
     {

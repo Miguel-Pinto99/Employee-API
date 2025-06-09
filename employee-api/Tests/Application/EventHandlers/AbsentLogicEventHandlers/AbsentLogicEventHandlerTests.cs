@@ -12,7 +12,7 @@ using employee_api.Events.UnsEvents;
 using employee_api.Application.EventHandlers.AbsentLogic;
 using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.AbsentLogicEventHandlers
 {
     public class AbsentLogicEventHandlerTests
     {

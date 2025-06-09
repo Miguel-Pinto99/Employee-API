@@ -7,7 +7,7 @@ using employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern;
 using employee_api.Persistance;
 using employee_api.Events.UnsLogicEvents;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern
 {
     public class DeleteWorkPatternHandlerTests
     {

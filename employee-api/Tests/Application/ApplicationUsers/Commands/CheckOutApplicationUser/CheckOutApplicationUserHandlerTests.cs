@@ -7,7 +7,7 @@ using employee_api.Persistance;
 using employee_api.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
 using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
 {
     public class CheckOutApplicationUserHandlerTests
     {

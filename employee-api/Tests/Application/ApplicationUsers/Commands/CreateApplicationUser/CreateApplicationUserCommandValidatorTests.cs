@@ -3,7 +3,7 @@ using employee_api.Application.ApplicationUser.Commands.CreateApplicationUser;
 using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreateApplicationUserCommandValidatorTests
     {

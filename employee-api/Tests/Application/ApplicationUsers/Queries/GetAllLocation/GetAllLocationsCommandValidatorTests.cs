@@ -3,7 +3,7 @@ using employee_api.Application.ApplicationUsers.Queries.GetAllLocation;
 using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetAllLocation
 {
     public class GetAllLocationsCommandValidatorTests
     {

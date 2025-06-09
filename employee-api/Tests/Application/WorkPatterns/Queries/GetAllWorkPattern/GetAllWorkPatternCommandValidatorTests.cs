@@ -2,7 +2,7 @@ using FluentValidation.TestHelper;
 using Xunit;
 using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Queries.GetAllWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Queries.GetAllWorkPattern
 {
     public class GetAllWorkPatternCommandValidatorTests
     {

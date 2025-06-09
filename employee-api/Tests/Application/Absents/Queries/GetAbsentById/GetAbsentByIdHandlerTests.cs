@@ -7,7 +7,7 @@ using employee_api.Application.Absent.Queries.GetAbsentByIdById;
 using employee_api.Persistance;
 using employee_api.Application.Absent.Queries.GetAbsent;
 
-namespace PVSDashboard.Tests.Application.Absentss.Queries.GetById
+namespace employee_api.Tests.Application.Absentss.Queries.GetById
 {
     public class GetByIdHandlerTests
     {

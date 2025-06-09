@@ -2,7 +2,7 @@ using FluentValidation.TestHelper;
 using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetLocation
 {
     public class GetLocationCommandValidatorTests
     {

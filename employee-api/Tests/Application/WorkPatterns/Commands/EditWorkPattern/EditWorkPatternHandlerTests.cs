@@ -12,7 +12,7 @@ using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
 using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.EditWorkPattern
 {
     public class EditWorkPatternHandlerTests
     {

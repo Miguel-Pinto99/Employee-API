@@ -3,7 +3,7 @@ using employee_api.Application.ApplicationUsers.Commands.EditApplicationUser;
 using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
 {
     public class EditApplicationUserCommandValidatorTests
     {

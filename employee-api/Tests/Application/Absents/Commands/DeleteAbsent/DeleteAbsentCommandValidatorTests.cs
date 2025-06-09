@@ -2,7 +2,7 @@ using employee_api.Application.Absent.Commands.DeleteAbsent;
 using FluentValidation.TestHelper;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.Absents.Commands.DeleteAbsent
+namespace employee_api.Tests.Application.Absents.Commands.DeleteAbsent
 {
     public class DeleteAbsentCommandValidatorTests
     {

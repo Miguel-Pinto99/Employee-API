@@ -9,7 +9,7 @@ using employee_api.Application.Uns.UnsLogicEventHandlers;
 using Xunit;
 using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsLogicEventHandlers
 {
     public class CreateWorkPatternUnsLogicEventHandlerTests
     {

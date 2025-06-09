@@ -2,7 +2,7 @@ using FluentValidation.TestHelper;
 using employee_api.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
 {
     public class CheckOutApplicationUserCommandValidatorTests
     {

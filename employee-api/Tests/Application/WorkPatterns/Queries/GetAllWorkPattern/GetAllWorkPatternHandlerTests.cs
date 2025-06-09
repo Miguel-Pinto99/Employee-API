@@ -6,7 +6,7 @@ using Xunit;
 using employee_api.Application.WorkPatterns.Queries.GetAllWorkPattern;
 using MediatR;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Queries.GetAllWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Queries.GetAllWorkPattern
 {
     public class GetAllWorkPatternHandlerTests
     {

@@ -11,7 +11,7 @@ using employee_api.Persistance;
 using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using System.Reflection.Metadata;
 
-namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
+namespace employee_api.Tests.Persistance.ApplicationUserRepositoryTests
 {
     public class CreateApplicationUsersTests : ApplicationUserRepositoryTestsBase
    {

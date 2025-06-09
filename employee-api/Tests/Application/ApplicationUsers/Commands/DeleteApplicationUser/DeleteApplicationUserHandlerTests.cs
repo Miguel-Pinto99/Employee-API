@@ -9,7 +9,7 @@ using employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser;
 using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
 using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.DeleteApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.DeleteApplicationUser
 {
     public class DeleteApplicationUserHandlerTests
     {

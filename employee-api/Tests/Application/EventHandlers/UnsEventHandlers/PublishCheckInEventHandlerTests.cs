@@ -10,7 +10,7 @@ using employee_api.Timers;
 using Xunit;
 using MediatR.Wrappers;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsEventHandlers
 {
     public class PublishCheckInEventHandlerTests
     {

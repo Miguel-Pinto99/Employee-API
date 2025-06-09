@@ -8,7 +8,7 @@ using employee_api.Persistance;
 using FluentAssertions.Specialized;
 using System.Linq.Expressions;
 
-namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
+namespace employee_api.Tests.Persistance.ApplicationUserRepositoryTests
 {
     public class DeleteApplicationUsersTests : ApplicationUserRepositoryTestsBase
     {

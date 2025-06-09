@@ -3,7 +3,7 @@ using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
 using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternCommandBodyValidatorTests
     {

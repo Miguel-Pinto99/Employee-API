@@ -7,7 +7,7 @@ using employee_api.Persistance;
 using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using employee_api.Events.UnsLogicEvents;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreatreApplicationUserTests
     {

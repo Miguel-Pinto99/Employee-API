@@ -7,7 +7,7 @@ using Xunit;
 using Microsoft.EntityFrameworkCore;
 using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests
+namespace employee_api.Tests.Persistance.WorkPatternRepositoryTests
 {
     public class UpdateWorkPatternsTests : WorkPatternRepositoryTestsBase
     {

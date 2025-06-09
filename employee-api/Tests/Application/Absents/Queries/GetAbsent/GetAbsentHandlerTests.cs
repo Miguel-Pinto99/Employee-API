@@ -7,7 +7,7 @@ using Xunit;
 using employee_api.Events.AbsentLogicEvents;
 using employee_api.Application.Absent.Queries.GetAbsent;
 
-namespace PVSDashboard.Tests.Application.Absents.Queries.GetAbsent
+namespace employee_api.Tests.Application.Absents.Queries.GetAbsent
 {
     public class GetAbsentHandlerTests
     {

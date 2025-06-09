@@ -7,7 +7,7 @@ using Xunit;
 using Microsoft.EntityFrameworkCore;
 using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.AbsentRepositoryTests
+namespace employee_api.Tests.Persistance.AbsentRepositoryTests
 {
     public class GetAllAbsentsTests : AbsentRepositoryTestsBase
     {

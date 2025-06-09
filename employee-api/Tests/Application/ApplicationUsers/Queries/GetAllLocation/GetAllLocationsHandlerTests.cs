@@ -7,7 +7,7 @@ using employee_api.Persistance;
 using System.Collections.Generic;
 using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetAllLocation
 {
     public class GetAllLocationsHandlerTests
     {

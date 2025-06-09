@@ -8,7 +8,7 @@ using Xunit;
 using employee_api.Events.AbsentLogicEvents;
 using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
 
-namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
+namespace employee_api.Tests.Application.Absents.Commands.EditAbsent
 {
     public class EditAbsentHandlerTests
     {

@@ -13,7 +13,7 @@ using employee_api.Application.Uns.UnsLogicEventHandlers;
 using employee_api.Events.UnsLogicEvents;
 using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.CreateApplicationUserUnsLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.CreateApplicationUserUnsLogicEventHandlers
 {
     public class CreateApplicationUserUnsLogicEventHandlerTests
     {

@@ -6,7 +6,7 @@ using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 using employee_api.Persistance;
 using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetLocation
 {
     public class GetLocationHandlerTests
     {

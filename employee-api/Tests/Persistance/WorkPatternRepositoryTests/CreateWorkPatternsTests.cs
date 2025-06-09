@@ -4,7 +4,7 @@ using FluentAssertions;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
 
-namespace PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests
+namespace employee_api.Tests.Persistance.WorkPatternRepositoryTests
 {
     public class CreateWorkPatternsTests : WorkPatternRepositoryTestsBase 
     {
