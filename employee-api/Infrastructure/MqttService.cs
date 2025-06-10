@@ -9,7 +9,7 @@ namespace employee_api.Infrastructure
 
         {
             var mqttFactory = new MqttFactory();
-            string ip = "127.0.0.1";
+            string ip = "emqx";
 
             using (var mqttClient = mqttFactory.CreateMqttClient())
             {
