@@ -6,7 +6,7 @@ namespace employee_api.Application.ApplicationUsers.Queries.GetLocation
     {
         public GetLocationCommandValidator()
         {
-            RuleFor(x => x.OfficeLocation).GreaterThan(0);
+            RuleFor(x => x.OfficeLocation).NotEmpty();
         }
     }
 }

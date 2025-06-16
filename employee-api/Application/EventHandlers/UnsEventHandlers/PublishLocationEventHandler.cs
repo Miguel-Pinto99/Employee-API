@@ -28,7 +28,7 @@ namespace employee_api.Application.Uns.EventHandlers
             }
 
             UsersEachLocation usersEachLocation = notification.UsersEachLocation;
-            int officeLocation = notification.OfficeLocation;
+            string officeLocation = notification.OfficeLocation;
 
 
             await _unsService.PublishLocationAsync(usersEachLocation, officeLocation, cancellationToken);

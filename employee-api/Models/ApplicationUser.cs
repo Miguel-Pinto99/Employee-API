@@ -12,7 +12,7 @@ namespace employee_api.Models
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
-        public int OfficeLocation { get; set; }
+        public string OfficeLocation { get; set; }
         public bool CheckedIn { get; set; }
         public string Email { get; set; }
         public string SAMAcountName { get; set; }

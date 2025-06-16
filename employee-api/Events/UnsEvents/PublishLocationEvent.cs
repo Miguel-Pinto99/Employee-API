@@ -6,8 +6,8 @@ namespace employee_api.Events.UnsEvents
     public class PublishLocationEvent : INotification
     {
         public UsersEachLocation UsersEachLocation { get; set; }
-        public int OfficeLocation { get; set; }
-        public PublishLocationEvent(UsersEachLocation usersEachLocation, int officeLocation)
+        public string OfficeLocation { get; set; }
+        public PublishLocationEvent(UsersEachLocation usersEachLocation, string officeLocation)
         {
             UsersEachLocation = usersEachLocation;
             OfficeLocation = officeLocation;

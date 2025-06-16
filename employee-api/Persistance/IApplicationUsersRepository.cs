@@ -18,7 +18,7 @@ namespace employee_api.Persistance
         public Task<ApplicationUser> CheckInApplicationUserAsync(int applicationUser, CancellationToken cancellationToken);
         public Task<ApplicationUser> CheckOutApplicationUserAsync(int applicationUser, CancellationToken cancellationToken);
 
-        public Task<UsersEachLocation> GetLocationAsync(int officeLocation, CancellationToken cancellationToken);
+        public Task<UsersEachLocation> GetLocationAsync(string officeLocation, CancellationToken cancellationToken);
 
         public Task<List<ApplicationUser>> GetAllApplicationUserAsync(CancellationToken cancellationToken);
         

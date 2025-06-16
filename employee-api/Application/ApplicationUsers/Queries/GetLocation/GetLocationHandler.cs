@@ -22,7 +22,7 @@ namespace employee_api.Application.ApplicationUsers.Queries.GetLocation
                 throw new ArgumentNullException(nameof(command));
             }
 
-            int officeLocation = command.OfficeLocation;
+            string officeLocation = command.OfficeLocation;
             UsersEachLocation usersEachLocation = await _repository.GetLocationAsync(officeLocation, cancellationToken);
 
             return new GetLocationResponse

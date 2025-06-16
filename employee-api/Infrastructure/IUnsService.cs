@@ -14,7 +14,7 @@ namespace employee_api.Infrastructure
         public Task CallListWorkPatternPartAsync(WorkPattern workPattern, CancellationToken cancellationToken);
 
 
-        public Task PublishLocationAsync(UsersEachLocation location, int officeLocationId, CancellationToken cancellationToken);
+        public Task PublishLocationAsync(UsersEachLocation location, string officeLocationId, CancellationToken cancellationToken);
         public Task PostAllLocationAsync(List<UsersEachLocation> location, CancellationToken cancellationToken);
 
 

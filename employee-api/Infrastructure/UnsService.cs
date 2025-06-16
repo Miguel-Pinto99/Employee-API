@@ -495,7 +495,7 @@ namespace employee_api.Infrastructure
             string topic = $"users/{Convert.ToString(id)}/pvs/schedule/shift_today";
             await PublishOnTopicAsync(todaySchedule, topic, cancellationToken);
         }
-        public async Task PublishLocationAsync(UsersEachLocation location, int officeLocationId, CancellationToken cancellationToken)
+        public async Task PublishLocationAsync(UsersEachLocation location, string officeLocationId, CancellationToken cancellationToken)
 
         {
             List<int> payLoad = new List<int>();

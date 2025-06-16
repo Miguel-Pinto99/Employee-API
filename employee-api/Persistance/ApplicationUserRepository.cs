@@ -134,7 +134,7 @@ namespace employee_api.Persistance
             return usersOffice;
         }
 
-        public async Task<UsersEachLocation> GetLocationAsync(int officeLocation, CancellationToken cancellationToken)
+        public async Task<UsersEachLocation> GetLocationAsync(string officeLocation, CancellationToken cancellationToken)
         {
             var user = await _context.Users.Where(x => x.OfficeLocation == officeLocation).ToListAsync(cancellationToken);
         

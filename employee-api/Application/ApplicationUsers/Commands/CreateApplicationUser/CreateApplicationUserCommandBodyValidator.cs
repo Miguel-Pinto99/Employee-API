@@ -9,6 +9,6 @@ public class CreateApplicationUserCommandBodyValidator : AbstractValidator<Creat
     {
 
         RuleFor(x => x.FirstName).NotEmpty();
-        RuleFor(x => x.OfficeLocation).GreaterThan(0);
+        RuleFor(x => x.OfficeLocation).NotEmpty();
     }
 }
