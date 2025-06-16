@@ -6,5 +6,8 @@ namespace employee_api.Application.ApplicationUsers.Queries.EditApplicationUser
     {
         public string FirstName { get; set; }
         public int OfficeLocation { get; set; }
+        public string Email { get; set; }
+        public string EmployeeNumber { get; set; }
+        public string SamAccountName { get; set; }
     }
 }

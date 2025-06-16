@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FluentAssertions.Execution;
 using Newtonsoft.Json;
 using employee_api.Models;
+using System.Runtime.InteropServices;
 
 namespace employee_api.Infrastructure
 {
@@ -30,7 +31,6 @@ namespace employee_api.Infrastructure
             }
         }
         public async Task PublishCheckInAsync(ApplicationUser checkInUser,DateTime now, CancellationToken cancellationToken)
-
         {
             CheckInPayLoad messageJson = new CheckInPayLoad()
             {
@@ -44,6 +44,19 @@ namespace employee_api.Infrastructure
             string payLoad2 = checkInUser.FirstName;
             string topic2 = $"users/{checkInUser.Id}/name";
             await PublishOnTopicAsync(payLoad2, topic2, cancellationToken);
+
+            string payLoad3 = checkInUser.Email;
+            string topic3 = $"users/{checkInUser.Id}/email";
+            await PublishOnTopicAsync(payLoad3, topic3, cancellationToken);
+
+            string payLoad4 = checkInUser.EmployeeNumber;
+            string topic4 = $"users/{checkInUser.Id}/employee_number";
+            await PublishOnTopicAsync(payLoad4, topic4, cancellationToken);
+
+            string payLoad5 = checkInUser.SAMAcountName;
+            string topic5 = $"users/{checkInUser.Id}/sam_account_name";
+            await PublishOnTopicAsync(payLoad5, topic5, cancellationToken);
+
         }
         public async Task DeleteTopicApplicationUserAsync(ApplicationUser deletedUser, CancellationToken cancellationToken)
 

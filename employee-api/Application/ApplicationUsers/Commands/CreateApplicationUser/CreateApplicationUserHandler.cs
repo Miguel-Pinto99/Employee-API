@@ -27,7 +27,10 @@ namespace employee_api.Application.ApplicationUsers.Commands.CreateApplicationUs
             {
                 Id = command.Id,
                 FirstName = command.Body.FirstName,
-                OfficeLocation = command.Body.OfficeLocation
+                OfficeLocation = command.Body.OfficeLocation,
+                Email = command.Body.Email,
+                EmployeeNumber = command.Body.EmployeeNumber,
+                SAMAcountName = command.Body.SamAccountName
             };
 
             var createdUser = await _repository.CreateApplicationUserAsync(user, cancellationToken);

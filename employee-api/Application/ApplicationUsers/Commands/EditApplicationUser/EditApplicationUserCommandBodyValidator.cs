@@ -9,6 +9,9 @@ public class EditApplicationUserCommandBodyValidator : AbstractValidator<EditApp
     {
 
         RuleFor(x => x.FirstName).NotEmpty();
-        RuleFor(x => x.OfficeLocation).GreaterThan(0);
+        RuleFor(x => x.OfficeLocation).NotEmpty();
+        RuleFor(x => x.Email).NotEmpty();
+        RuleFor(x => x.EmployeeNumber).NotEmpty();
+        RuleFor(x => x.SamAccountName).NotEmpty();
     }
 }
