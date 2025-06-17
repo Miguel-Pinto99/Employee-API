@@ -1,7 +1,7 @@
 {
     "name": "Blazor Frontend Development",
     "dockerComposeFile": [
-        "../local.yml"
+        "../docker-compose.yml"
     ],
     "service": "frontend",
     "init": true,
