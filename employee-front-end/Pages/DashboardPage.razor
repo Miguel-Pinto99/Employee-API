@@ -418,9 +418,8 @@
     {        
         try
         {
-            _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);
+            _listLocations = await _unsService.GetLocationsAsync(CancellationToken.None);           
             _listApplicationUsers = await _unsService.GetApplicationUsersAsync(CancellationToken.None);
-
             _unsEvent.CallBackEvent += RenderPage;
 
             await SubscriberLogicAsync();
@@ -446,7 +445,6 @@
     {
         _listApplicationUsersLocation = new List<ApplicationUser>();
         var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
-
         if (usersInLocation is not null)
         {
             var _filterList = _listApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);

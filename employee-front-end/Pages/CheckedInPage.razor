@@ -338,7 +338,6 @@
     {
         _listTodayApplicationUsersLocation = new List<ApplicationUser>();
         _listTodayApplicationUsers = _listApplicationUsers.FindAll(x => x.Checked_In is true);
-        _listTodayApplicationUsers = _listTodayApplicationUsers.FindAll(x => x.RoleId == "39e03819-da1b-482e-af27-57ccdec43d8d");
         var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
 
         if (usersInLocation is not null)
