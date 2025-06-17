@@ -182,11 +182,8 @@ namespace employee_api.Timers
                         delayTask = TimeSpan.FromSeconds(1);
                     };
 
-                    if (delayTask < TimeSpan.FromSeconds(0))
-                    {
-                        delayTask = TimeSpan.FromSeconds(9999999);
-                    }
-                    await Task.Delay(delayTask, token);
+                    var findelayTask = -1;
+                    await Task.Delay(findelayTask, token);
                     await CalculateDelayWithoutSettingTaskAsync(idApplicationUserNextShift, token);
                 }
             }
