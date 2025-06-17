@@ -53,6 +53,7 @@ namespace employee_front_end.Infrastructure
 
                     ApplicationUser applicationUser = new ApplicationUser();
                     applicationUser.PersonalInfo = new PersonalInfo();
+
                     Dictionary<string, bool> dicRegexTopic = new Dictionary<string, bool>();
                     string id = "";
 
@@ -60,6 +61,7 @@ namespace employee_front_end.Infrastructure
                     applicationUser.Id = id;
 
                     var userInList = _listApplicationUsers.Find(x => x.Id == id);
+
                     if (userInList != null)
                     {
                         applicationUser.ScheduleWorkNow = userInList.ScheduleWorkNow;
@@ -70,32 +72,30 @@ namespace employee_front_end.Infrastructure
                         applicationUser.RoleId = userInList.RoleId;
                         _listApplicationUsers.RemoveAll(x => x.Id == id);
                     }
-                    _listApplicationUsers = _listApplicationUsers.FindAll(x => x.RoleId == "39e03819-da1b-482e-af27-57ccdec43d8d");
                     applicationUser = await CreateUserToAddAsync(dicRegexTopic,applicationUser,messagePayLoad, cancellationToken);
-
                     _listApplicationUsers.Add(applicationUser);
                     _unsEvents.CallBackApplicationUsers();
                 };
                 await _mqttClientUsers.SubscribeAsync(mqttSubscribeOptions, CancellationToken.None);
             }
-            _listApplicationUsers = _listApplicationUsers.OrderBy(x => x.PersonalInfo.Name).ToList();            
+            _listApplicationUsers = _listApplicationUsers.OrderBy(x => x.PersonalInfo.Name).ToList();
             return _listApplicationUsers;
         }
         public async Task<(Dictionary<string, bool>, string)> CreateDictionaryRegexAsync(string messageTopic , CancellationToken cancellationToken)
         {
             Dictionary<string, bool> dicRegexTopic = new Dictionary<string, bool>();
 
-            string patternId = @"\b([{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?)\b";
+            string patternId = @"(?<=users/)\d+(?=/)";
             string patternSchedule = @"\b(schedule)\b$";
             string patternToday = @"\b(shift_today)\b$";
             string patternCheckedIn = @"\b(checked_in)\b$";
             string patternAbsentToday = @"\b(absent_today)\b$";
 
-            string patternName = @"\b(\/name)\b$";
+            string patternName = @"\b(name)\b$";
             string patternEmail = @"\b(email)\b$";
-            string patternSAMAcountNumber = @"\b(acount)\b";
-            string patternEmployeeNumber = @"\b(employee number)\b$";
-            string patternRole = @"\b(role)\b$";
+            string patternSAMAcountNumber = @"\b(sam_account_name)\b";
+            string patternEmployeeNumber = @"\b(employee_number)\b$";
+
 
 
             Match matchId = Regex.Match(messageTopic, patternId);
@@ -108,7 +108,6 @@ namespace employee_front_end.Infrastructure
             bool hasMatchEmail = Regex.IsMatch(messageTopic, patternEmail);
             bool hasMatchSAMAcountNumber = Regex.IsMatch(messageTopic, patternSAMAcountNumber);
             bool hasMatchEmployeeNumber = Regex.IsMatch(messageTopic, patternEmployeeNumber);
-            bool hasMatchRole = Regex.IsMatch(messageTopic, patternRole);
 
             dicRegexTopic.Add("MatchTopicWorkNow", hasMatchWorkNow);
             dicRegexTopic.Add("MatchTopicTodayShift", hasMatchTodayShift);
@@ -119,7 +118,6 @@ namespace employee_front_end.Infrastructure
             dicRegexTopic.Add("MatchTopicEmail", hasMatchEmail);
             dicRegexTopic.Add("MatchTopicSAMAcountNumber", hasMatchSAMAcountNumber);
             dicRegexTopic.Add("MatchTopicEmployeeNumber", hasMatchEmployeeNumber);
-            dicRegexTopic.Add("MatchTopicRole", hasMatchRole);
 
             string id = Convert.ToString(matchId.Value);
 
@@ -138,7 +136,6 @@ namespace employee_front_end.Infrastructure
                 name = name.Replace("\"", "");
                 applicationUser.PersonalInfo.Name = name;
             }
-
             if (dicRegexTopic["MatchTopicWorkNow"] is true)
             {
                 var matchTrueFalse = Regex.Match(messagePayLoad, patternTrueFalse);
@@ -146,7 +143,6 @@ namespace employee_front_end.Infrastructure
                 bool scheduleWorkNow = Convert.ToBoolean(scheduleWorkNowString);
                 applicationUser.ScheduleWorkNow = scheduleWorkNow;
             }
-
             if (dicRegexTopic["MatchTopicTodayShift"] is true)
             {
                 var listFrom = new List<string>();
@@ -183,7 +179,6 @@ namespace employee_front_end.Infrastructure
                 }
 
             }
-
             if (dicRegexTopic["MatchTopicAbsentToday"] is true)
             {
                 var listFrom = new List<string>();
@@ -220,7 +215,6 @@ namespace employee_front_end.Infrastructure
                     applicationUser.TodayAbsent = new TodayAbsent();
                 }
             }
-
             if (dicRegexTopic["MatchTopicCheckedIn"] is true)
             {
                 Match matchTrueFalse = Regex.Match(messagePayLoad, patternTrueFalse);
@@ -228,7 +222,6 @@ namespace employee_front_end.Infrastructure
                 bool checkedIn = Convert.ToBoolean(checkedInString);
                 applicationUser.Checked_In = checkedIn;
             }
-
             if (dicRegexTopic["MatchTopicEmail"] is true)
             {
                 string email = Convert.ToString(messagePayLoad);
@@ -247,13 +240,6 @@ namespace employee_front_end.Infrastructure
                 employeeNumber = employeeNumber.Replace("\"", "");
                 applicationUser.PersonalInfo.EmployeeNumber = employeeNumber;
             }
-            if (dicRegexTopic["MatchTopicRole"] is true)
-            {
-                string role = Convert.ToString(messagePayLoad);
-                role = role.Replace("\"", "");
-                applicationUser.RoleId = role;
-            }
-
             return applicationUser;
         }
 
@@ -282,14 +268,11 @@ namespace employee_front_end.Infrastructure
 
                     string patternLocation = @"(?<=locations\/)(.*)(?=\/pvs)";
                     var matchLocation = Convert.ToString(Regex.Match(messageTopic, patternLocation));
-
-
-                    List<string> listStringId = JsonSerializer.Deserialize<List<string>>(messagePayLoad);
+                    List<string> listStringId = new List<string> { messagePayLoad };
 
                     var location = _listLocations.FirstOrDefault(x => x.Location == matchLocation);
                     var newUsersEachLocation = new UsersEachLocation();
                     newUsersEachLocation.GuidList = listStringId;
-
                     if (location is not null)
                     {
                         newUsersEachLocation.Location = location.Location;
@@ -298,7 +281,6 @@ namespace employee_front_end.Infrastructure
                     {
                         newUsersEachLocation.Location = matchLocation;
                     }
-
 
                     if (location is not null)
                     {

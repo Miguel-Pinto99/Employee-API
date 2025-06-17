@@ -347,7 +347,7 @@
         _listTodayAbsentsLocation = new List<ApplicationUser>();
         _listTodayAbsents = _listApplicationUsers.FindAll(x => x.TodayAbsent != null);
         _listTodayAbsents = _listTodayAbsents.FindAll(x => x.TodayAbsent.From != null);
-        _listTodayAbsents = _listTodayAbsents.FindAll(x => x.RoleId == "39e03819-da1b-482e-af27-57ccdec43d8d");
+        
         var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
 
         if (usersInLocation is not null)

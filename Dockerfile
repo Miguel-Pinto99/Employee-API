@@ -54,4 +54,8 @@ RUN git config --global --add safe.directory /workspace \
 # Install MQTTnet package
 RUN dotnet add package MQTTnet
 
-# End of Selection
+# Install dotnet-ef tool globally
+RUN dotnet tool install --global dotnet-ef
+
+# Add .NET Core SDK tools to PATH for the current session
+ENV PATH="$PATH:/home/vscode/.dotnet/tools"

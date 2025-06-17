@@ -358,7 +358,6 @@
                 _listApplicationUsersLocation.Add(user);
             }
         }
-        _listApplicationUsersLocation = _listApplicationUsersLocation.FindAll(x => x.RoleId == "39e03819-da1b-482e-af27-57ccdec43d8d");
         _listApplicationUsersLocationCycle = _listApplicationUsersLocation;
         _listApplicationUsersLocationCycle = _listApplicationUsersLocationCycle.OrderBy(x => x.PersonalInfo.Name).ToList();
     }
