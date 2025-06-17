@@ -33,7 +33,6 @@ namespace employee_api.Infrastructure
                     .Build();
 
                 await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
-                Console.WriteLine($"Published message to topic: {topic}");
             }
         }
     }

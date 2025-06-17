@@ -78,7 +78,7 @@ namespace employee_front_end.Infrastructure
                 };
                 await _mqttClientUsers.SubscribeAsync(mqttSubscribeOptions, CancellationToken.None);
             }
-            _listApplicationUsers = _listApplicationUsers.OrderBy(x => x.PersonalInfo.Name).ToList();      ;
+            _listApplicationUsers = _listApplicationUsers.OrderBy(x => x.PersonalInfo.Name).ToList();
             return _listApplicationUsers;
         }
         public async Task<(Dictionary<string, bool>, string)> CreateDictionaryRegexAsync(string messageTopic , CancellationToken cancellationToken)

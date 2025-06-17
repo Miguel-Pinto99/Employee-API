@@ -368,14 +368,12 @@
         _listTodayAbsents = new List<ApplicationUser>();
         _listTodayApplicationUsersLocation = new List<ApplicationUser>();
         _listApplicationUsersLocation = new List<ApplicationUser>();
-
         if (_listApplicationUsers is not null)
         {
             _listTodayApplicationUsers = _listApplicationUsers.FindAll(x => x.TodayShift is not null);
             _listTodayApplicationUsers = _listTodayApplicationUsers.FindAll(x => x.TodayShift.From is not null);
         }
         var usersInLocation = _listLocations.FirstOrDefault(x => x.Location == location);
-
         if (usersInLocation is not null)
         {
             var _filterList1 = _listTodayApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
