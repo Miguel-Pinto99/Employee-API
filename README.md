@@ -8,7 +8,8 @@ To run the application, use the following command:
 docker compose up
 ```
 
-For API documentation and testing, the application is structured to run the Swagger UI on `http://localhost:5000`. The front-end application is accessible at `http://localhost:7212`.
+For API documentation and testing, the application is structured to run the Swagger UI on `http://localhost:5000`.
+The front-end application is accessible at `http://localhost:7212`.
 
 
 ## Description
