@@ -1,3 +1,4 @@
+
 # Start of Selection
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
@@ -35,7 +36,7 @@ WORKDIR /workspace
 RUN chown -R $USERNAME:$USERNAME /workspace
 
 # Copy the project files
-COPY --chown=$USERNAME:$USERNAME employee-api/ /workspace/employee-api/
+COPY --chown=$USERNAME:$USERNAME . /workspace/employee-api/
 
 # Install dotnet workload as root
 RUN dotnet workload install wasm-tools wasm-experimental
@@ -53,3 +54,6 @@ RUN git config --global --add safe.directory /workspace \
 
 # Install dotnet-ef tool globally
 RUN dotnet tool install --global dotnet-ef
+
+# Generate a self-signed HTTPS certificate for development
+RUN dotnet dev-certs https --trust

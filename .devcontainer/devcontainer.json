@@ -6,7 +6,7 @@
     "init": true,
     "mounts": [
         {
-            "source": "~/.ssh",
+            "source": "/home/miguel/.ssh",
             "target": "/home/vscode/.ssh",
             "type": "bind"
         }
