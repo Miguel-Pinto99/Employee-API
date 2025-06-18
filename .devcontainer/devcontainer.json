@@ -1,13 +1,12 @@
 {
     "name": "Blazor Frontend Development",
-    "dockerComposeFile": [
-        "../docker-compose.yml"
-    ],
-    "service": "frontend",
+    "build": {
+        "dockerfile": "../employee-front-end/Dockerfile"
+    },
     "init": true,
     "mounts": [
         {
-            "source": "~/.ssh",
+            "source": "/home/miguel/.ssh",
             "target": "/home/vscode/.ssh",
             "type": "bind"
         }
