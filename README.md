@@ -1,4 +1,15 @@
-# Hoppenbrouwers project from Miguel Pinto 2023
+# Employee APU
+
+## Deployment
+
+To run the application, the following tools/libraries are needed:
+
+```
+docker compose up
+```
+
+For API documentation and testing, the application is structured to run the Swagger UI on `http://localhost:5000`. The front-end application is accessible at `http://localhost:7212`.
+
 
 ## Description
 
@@ -6,35 +17,3 @@ Repository which contains my internship project at Hoppenbrouwers. The premise o
 
 ## Context
 The dashboard shows which employees are currently working, absent and missing. Let's assume worker A needed help building an electric board because he was behind schedule. By checking the dashboard, he would know right away that calling employee B would be pointless because he reported sick and is absent. Conversely, he sees that employee C has already checked in with his company card, so he might be available to give him a hand.
-
-## Requirements
-
-```
-- .NET Core / ASP.NET Core: Framework for building the API.
-- Entity Framework Core: ORM for database access.
-- Swashbuckle (Swagger): For API documentation.
-- System.Text.Json: For JSON handling.
-```
-
-## Features
-
-```
--REST API
--MQTT broker
--Unitests
--mediaR notifications
--SQL database
-```
-
-## Deployment
-
-To run the application, the following tools/libraries are needed:
-
-```
-1- Swagger (It allows the user to simulate the check-in and it should launch automatically with the application)
-2- MQTT broker (setup a container with EMQX for example)
-```
-
-## Launch
-
-To start the project, first, a docker container with an EMQX MQTT broker should be started. Then start the front-end and back-end using the executable and let the application do its magic. 
