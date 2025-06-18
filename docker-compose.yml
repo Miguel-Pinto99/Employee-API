@@ -14,20 +14,28 @@ services:
       timeout: 5s
       retries: 3
     restart: unless-stopped
-  frontend:
+
+  backend:
     build:
-      context: .
+      context: ./employee-api
       dockerfile: Dockerfile
-    volumes:
-      - .:/workspace
-      - ~/.nuget/packages:/root/.nuget/packages:ro
     ports:
       - "5000:5000"
-      - "5001:5001"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5000;https://+:5001
-    command: sleep infinity
+      - ASPNETCORE_URLS=http://+:5000
     depends_on:
       emqx:
         condition: service_healthy
+
+  frontend:
+    build:
+      context: ./employee-front-end
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5001
+    depends_on:
+      - backend

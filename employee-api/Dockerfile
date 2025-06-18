@@ -35,7 +35,7 @@ WORKDIR /workspace
 RUN chown -R $USERNAME:$USERNAME /workspace
 
 # Copy the project files
-COPY --chown=$USERNAME:$USERNAME employee-front-end/ /workspace/employee-front-end/
+COPY --chown=$USERNAME:$USERNAME employee-api/ /workspace/employee-api/
 
 # Install dotnet workload as root
 RUN dotnet workload install wasm-tools wasm-experimental
@@ -44,18 +44,12 @@ RUN dotnet workload install wasm-tools wasm-experimental
 USER $USERNAME
 
 # Set working directory to the project directory
-WORKDIR /workspace/employee-front-end
+WORKDIR /workspace/employee-api
 
 # Configure Git
 RUN git config --global --add safe.directory /workspace \
-    && git config --global --add safe.directory /workspace/employee-front-end \
+    && git config --global --add safe.directory /workspace/employee-api \
     && git config --global init.defaultBranch main
-
-# Install MQTTnet package
-RUN dotnet add package MQTTnet
 
 # Install dotnet-ef tool globally
 RUN dotnet tool install --global dotnet-ef
-
-# Add .NET Core SDK tools to PATH for the current session
-ENV PATH="$PATH:/home/vscode/.dotnet/tools"
