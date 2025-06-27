@@ -1,9 +1,9 @@
 using FluentValidation.TestHelper;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
-using Project1.Models;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternCommandBodyValidatorTests
     {

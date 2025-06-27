@@ -3,11 +3,11 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Application.Absent.Queries.GetAbsentByIdById;
-using Project1.Persistance;
-using Project1.Application.Absent.Queries.GetAbsent;
+using employee_api.Application.Absent.Queries.GetAbsentByIdById;
+using employee_api.Persistance;
+using employee_api.Application.Absent.Queries.GetAbsent;
 
-namespace PVSDashboard.Tests.Application.Absentss.Queries.GetById
+namespace employee_api.Tests.Application.Absentss.Queries.GetById
 {
     public class GetByIdHandlerTests
     {
@@ -38,9 +38,9 @@ namespace PVSDashboard.Tests.Application.Absentss.Queries.GetById
         public async Task HandleShouldCallGetByIdAsyncOnRepository_WhenCommandIsSet()
         {
             // Arrange
-            var listAbsentsById = new List<Project1.Models.Absent>
+            var listAbsentsById = new List<employee_api.Models.Absent>
                 {
-                    new Project1.Models.Absent
+                    new employee_api.Models.Absent
                     {
                         Id = Guid.NewGuid(),
                         UserId = 1,

@@ -1,8 +1,8 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.CheckInApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.CheckInApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CheckInApplicationUser
 {
     public class CheckInApplicationUserCommandValidatorTests
     {

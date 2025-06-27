@@ -1,7 +1,7 @@
 {
     "name": "Blazor Frontend Development",
     "build": {
-        "dockerfile": "../employee-front-end/Dockerfile"
+        "dockerfile": "../employee-api/Dockerfile"
     },
     "init": true,
     "mounts": [

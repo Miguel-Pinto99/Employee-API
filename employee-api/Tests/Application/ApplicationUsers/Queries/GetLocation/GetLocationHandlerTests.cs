@@ -2,11 +2,11 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
 using Xunit;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Persistance;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Persistance;
+using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetLocation
 {
     public class GetLocationHandlerTests
     {
@@ -37,13 +37,13 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
         public async Task HandleShouldCallGetLocationAsyncOnLocationRepository_WhenCommandIsSet()
         {
             // Arrange
-            UsersEachLocation location = new UsersEachLocation(2, new List<int>());
+            UsersEachLocation location = new UsersEachLocation("2", new List<int>());
 
             _applicationUsersRepositoryMock
-                .Setup(x => x.GetLocationAsync(2, CancellationToken.None))
+                .Setup(x => x.GetLocationAsync("2", CancellationToken.None))
                 .ReturnsAsync(location);
 
-            var command = new GetLocationCommand(2);
+            var command = new GetLocationCommand("2");
 
             // Act
             GetLocationResponse response = await _handler.Handle(command, CancellationToken.None);
@@ -53,7 +53,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
             response.UserEachLocation.Should().NotBeNull();
 
             _applicationUsersRepositoryMock
-                .Verify(x => x.GetLocationAsync(It.IsAny<int>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.GetLocationAsync(It.IsAny<string>(), CancellationToken.None), Times.Once);
         }
     }
 }

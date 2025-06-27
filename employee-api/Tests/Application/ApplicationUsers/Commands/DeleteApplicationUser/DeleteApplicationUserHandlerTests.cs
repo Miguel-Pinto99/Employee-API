@@ -3,13 +3,13 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
-using Project1.Application.ApplicationUsers.Commands.DeleteApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Application.ApplicationUsers.Commands.DeleteApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.DeleteApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.DeleteApplicationUser
 {
     public class DeleteApplicationUserHandlerTests
     {
@@ -42,13 +42,13 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.DeleteApplica
         public async Task HandleShouldCallDeleteApplicationUserAsyncOnApplicationUserRepository_WhenCommandIsSet()
         {
             // Arrange
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>()
+                OfficeLocation = "1",
+                WorkPatterns = new List<employee_api.Models.WorkPattern>()
             };
 
             _applicationUserRepositoryMock
@@ -59,7 +59,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.DeleteApplica
                 .ReturnsAsync(new GetApplicationUserResponse{ ApplicationUser =  applicationUser});
 
             _mediatorMock.Setup(x => x.Send(It.IsAny<GetLocationCommand>(), CancellationToken.None))
-                .ReturnsAsync(new GetLocationResponse { UserEachLocation = new Project1.Models.UsersEachLocation(1, new List<int> {1})});
+                .ReturnsAsync(new GetLocationResponse { UserEachLocation = new employee_api.Models.UsersEachLocation("1", new List<int> {1})});
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<DeleteApplicationUserLogicEvent>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);

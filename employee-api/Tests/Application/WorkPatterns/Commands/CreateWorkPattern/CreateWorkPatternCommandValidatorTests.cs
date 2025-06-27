@@ -1,9 +1,9 @@
 using FluentValidation.TestHelper;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
-using Project1.Models;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternCommandValidatorTests
     {
@@ -41,7 +41,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             var createWorkPatternCommandBody = new CreateWorkPatternCommandBody();
             createWorkPatternCommandBody.StartDate = new DateTime();
             createWorkPatternCommandBody.EndDate = new DateTime(2023, 1, 1, 0, 0, 0);
-            createWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            createWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new CreateWorkPatternCommand(2, createWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.StartDate);
         }
@@ -52,7 +52,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             var createWorkPatternCommandBody = new CreateWorkPatternCommandBody();
             createWorkPatternCommandBody.StartDate = new DateTime(2022,1,1,0,0,0);
             createWorkPatternCommandBody.EndDate = new DateTime(2023, 1, 1, 0, 0, 0);
-            createWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            createWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new CreateWorkPatternCommand(2, createWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldNotHaveValidationErrorFor(command => command.Body.EndDate);
         }
@@ -63,7 +63,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             var createWorkPatternCommandBody = new CreateWorkPatternCommandBody();
             createWorkPatternCommandBody.StartDate = new DateTime(2023, 1, 1, 0, 0, 0);
             createWorkPatternCommandBody.EndDate = new DateTime(2022, 1, 1, 0, 0, 0);
-            createWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            createWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new CreateWorkPatternCommand(2, createWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.EndDate);
         }
@@ -74,7 +74,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             var createWorkPatternCommandBody = new CreateWorkPatternCommandBody();
             createWorkPatternCommandBody.StartDate = new DateTime(2023, 1, 1, 0, 0, 0);
             createWorkPatternCommandBody.EndDate = new DateTime(2022, 1, 1, 0, 0, 0);
-            createWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            createWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new CreateWorkPatternCommand(2, createWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.EndDate);
         }

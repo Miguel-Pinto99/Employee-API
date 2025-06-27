@@ -1,11 +1,11 @@
-using Project1.Application.Absent.Commands.DeleteAbsent;
+using employee_api.Application.Absent.Commands.DeleteAbsent;
 using FluentValidation.TestHelper;
 using Xunit;
-using Project1.Application.Absent.Commands.EditAbsent;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Application.Absents.Commands.EditAbsent;
+using employee_api.Application.Absent.Commands.EditAbsent;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.Absents.Commands.EditAbsent;
 
-namespace PVSDashboard.Tests.Application.Absents.Commands.EditAbsent
+namespace employee_api.Tests.Application.Absents.Commands.EditAbsent
 {
     public class EditAbsentCommandValidatorTests
     {

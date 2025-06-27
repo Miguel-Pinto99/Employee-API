@@ -1,13 +1,13 @@
 using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
-using Project1.Persistance;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
 using MediatR;
-using Project1.Models;
+using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetApplicationUser
 {
     public class GetApplicationUserHandlerTests
     {

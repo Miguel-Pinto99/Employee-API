@@ -1,8 +1,8 @@
 using FluentValidation.TestHelper;
-using Project1.Application.Absent.Queries.GetAbsentByIdById;
+using employee_api.Application.Absent.Queries.GetAbsentByIdById;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.Absents.Queries.GetById
+namespace employee_api.Tests.Application.Absents.Queries.GetById
 {
     public class GetByIdCommandValidatorTests
     {

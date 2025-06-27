@@ -1,7 +1,7 @@
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
+namespace employee_api.Tests.Persistance.ApplicationUserRepositoryTests
 {
     public class ApplicationUserRepositoryTestsBase : RepositoryTestsBase
     {
@@ -20,7 +20,7 @@ namespace PVSDashboard.Tests.Persistance.ApplicationUserRepositoryTests
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = new List<WorkPattern>()
             };
 

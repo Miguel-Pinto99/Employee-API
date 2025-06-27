@@ -1,8 +1,8 @@
-using Project1.Application.Absent.Commands.CreateAbsent;
+using employee_api.Application.Absent.Commands.CreateAbsent;
 using FluentValidation.TestHelper;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.Absent.Commands.CreateAbsent
+namespace employee_api.Tests.Application.Absent.Commands.CreateAbsent
 {
     public class CreateAbsentCommandValidatorTests
     {

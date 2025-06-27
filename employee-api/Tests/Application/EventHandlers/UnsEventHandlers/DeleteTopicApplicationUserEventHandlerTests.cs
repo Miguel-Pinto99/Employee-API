@@ -2,13 +2,13 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
 
-namespace Project1.Application.EventHandlers
+namespace employee_api.Application.EventHandlers
 {
     public class DeleteTopicApplicationUserEventHandlerTests
     {
@@ -64,12 +64,12 @@ namespace Project1.Application.EventHandlers
                 },
             };
 
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = listWorkPatterns
             };
 
@@ -83,7 +83,7 @@ namespace Project1.Application.EventHandlers
 
             // Assert
             _unsServiceMock
-                .Verify(x => x.DeleteTopicApplicationUserAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.DeleteTopicApplicationUserAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
         }
     }
 

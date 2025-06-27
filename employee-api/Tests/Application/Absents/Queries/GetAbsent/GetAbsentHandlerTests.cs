@@ -2,12 +2,12 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Persistance;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Events.AbsentLogicEvents;
-using Project1.Application.Absent.Queries.GetAbsent;
+using employee_api.Events.AbsentLogicEvents;
+using employee_api.Application.Absent.Queries.GetAbsent;
 
-namespace PVSDashboard.Tests.Application.Absents.Queries.GetAbsent
+namespace employee_api.Tests.Application.Absents.Queries.GetAbsent
 {
     public class GetAbsentHandlerTests
     {
@@ -38,7 +38,7 @@ namespace PVSDashboard.Tests.Application.Absents.Queries.GetAbsent
         public async Task HandleShouldCallGetAbsentAsyncOnAbsentRepository_WhenCommandIsSet()
         {
             // Arrange
-            var absent = new Project1.Models.Absent
+            var absent = new employee_api.Models.Absent
             {
                 Id = Guid.NewGuid(),
                 UserId = 1,

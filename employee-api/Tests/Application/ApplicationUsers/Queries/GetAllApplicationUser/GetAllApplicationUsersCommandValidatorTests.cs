@@ -1,8 +1,8 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.GetAllApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.GetAllApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetAllApplicationUser
 {
     public class GetAllApplicationUsersCommandValidatorTests
     {

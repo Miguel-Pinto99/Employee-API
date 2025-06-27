@@ -1,9 +1,9 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Commands.EditApplicationUser;
-using Project1.Application.ApplicationUsers.Queries.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
 {
     public class EditApplicationUserCommandValidatorTests
     {
@@ -40,33 +40,20 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicati
         {
             var editApplicationUserCommandBody = new EditApplicationUserCommandBody();
             editApplicationUserCommandBody.FirstName = null;
-            editApplicationUserCommandBody.OfficeLocation = 1;
+            editApplicationUserCommandBody.OfficeLocation = "1";
             var command = new EditApplicationUserCommand(2, editApplicationUserCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.FirstName);
         }
-
-
 
         [Fact(DisplayName = "Body when name is empty should have error")]
         public void NameIsEmpty_ShouldHaveError()
         {
             var editApplicationUserCommandBody = new EditApplicationUserCommandBody();
             editApplicationUserCommandBody.FirstName = "";
-            editApplicationUserCommandBody.OfficeLocation = 1;
+            editApplicationUserCommandBody.OfficeLocation = "1";
             var command = new EditApplicationUserCommand(2, editApplicationUserCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.FirstName);
         }
-
-        [Fact(DisplayName = "Body when office location is lower than zero should have error")]
-        public void OfficeLocationIsZero_ShouldHaveError()
-        {
-            var editApplicationUserCommandBody = new EditApplicationUserCommandBody();
-            editApplicationUserCommandBody.FirstName = "Miguel";
-            editApplicationUserCommandBody.OfficeLocation = 0;
-            var command = new EditApplicationUserCommand(2, editApplicationUserCommandBody);
-            _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.OfficeLocation);
-        }
-
     }
 }
 

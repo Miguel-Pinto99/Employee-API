@@ -1,9 +1,9 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUser.Commands.CreateApplicationUser;
-using Project1.Application.ApplicationUsers.Commands.CreateApplicationUser;
+using employee_api.Application.ApplicationUser.Commands.CreateApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreateApplicationUserCommandValidatorTests
     {
@@ -40,7 +40,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplica
         {
             var createApplicationUserCommandBody = new CreateApplicationUserCommandBody();
             createApplicationUserCommandBody.FirstName = null;
-            createApplicationUserCommandBody.OfficeLocation = 1;
+            createApplicationUserCommandBody.OfficeLocation = "1";
             var command = new CreateApplicationUserCommand(2, createApplicationUserCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.FirstName);
         }
@@ -50,19 +50,9 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplica
         {
             var createApplicationUserCommandBody = new CreateApplicationUserCommandBody();
             createApplicationUserCommandBody.FirstName = "";
-            createApplicationUserCommandBody.OfficeLocation = 1;
+            createApplicationUserCommandBody.OfficeLocation = "1";
             var command = new CreateApplicationUserCommand(2, createApplicationUserCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.FirstName);
-        }
-
-        [Fact(DisplayName = "Body when office location is lower than zero should have error")]
-        public void OfficeLocationIsZero_ShouldHaveError()
-        {
-            var createApplicationUserCommandBody = new CreateApplicationUserCommandBody();
-            createApplicationUserCommandBody.FirstName = "Miguel";
-            createApplicationUserCommandBody.OfficeLocation = 0;
-            var command = new CreateApplicationUserCommand(2, createApplicationUserCommandBody);
-            _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.OfficeLocation);
         }
     }
 }

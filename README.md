@@ -18,7 +18,7 @@ The idea was to build a fully functional dashboard which could be shown at the H
 
 ## Technologies and Tools
 
-- **C# and .NET**: Utilized for developing the back-end REST API.
+- **C# and .NET 8.0**: Utilized for developing the back-end REST API.
 - **MQTT**: Employed for message brokering between the front-end and back-end applications.
 - **Docker**: Used for containerizing the applications and managing dependencies.
 - **Swagger UI**: Implemented for API documentation and testing.

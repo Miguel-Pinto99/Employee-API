@@ -2,14 +2,14 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.Uns.UnsLogicEventHandlers;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.Uns.UnsLogicEventHandlers;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsLogicEventHandlers
 {
     public class DeleteWorkPatternUnsLogicEventHandlerTests
     {
@@ -68,13 +68,13 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = listWorkPatterns
             };
 
-            var listAllAbsents = new List<Project1.Models.Absent>
+            var listAllAbsents = new List<employee_api.Models.Absent>
             {
-                new Project1.Models.Absent
+                new employee_api.Models.Absent
                 {
                     UserId= 1,
                     Id = new Guid(),
@@ -83,7 +83,7 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 }
             };
 
-            UsersEachLocation usersEachLocation = new UsersEachLocation(1, new List<int> { 1, 2, 3 });
+            UsersEachLocation usersEachLocation = new UsersEachLocation("1", new List<int> { 1, 2, 3 });
 
             _mediatorMock.Setup(x => x.Send(It.IsAny<GetApplicationUserCommand>(), CancellationToken.None))
                 .ReturnsAsync(new GetApplicationUserResponse { ApplicationUser = applicationUser });

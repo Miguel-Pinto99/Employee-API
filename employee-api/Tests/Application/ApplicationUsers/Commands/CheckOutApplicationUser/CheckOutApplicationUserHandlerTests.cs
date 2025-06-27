@@ -3,11 +3,11 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Persistance;
-using Project1.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
-using Project1.Events.UnsEvents;
+using employee_api.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.CheckOutApplicationUser;
+using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CheckOutApplicationUser
 {
     public class CheckOutApplicationUserHandlerTests
     {
@@ -40,13 +40,13 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CheckOutAppli
         public async Task HandleShouldCallCheckOutApplicationUserAsyncOnApplicationUserRepository_WhenCommandIsSet()
         {
             // Arrange
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>()
+                OfficeLocation = "1",
+                WorkPatterns = new List<employee_api.Models.WorkPattern>()
             };
 
             _applicationUserRepositoryMock

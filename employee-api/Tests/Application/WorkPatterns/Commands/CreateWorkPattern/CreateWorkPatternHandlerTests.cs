@@ -3,12 +3,12 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Application.WorkPatterns.Commands.CreateWorkPattern;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
-using Project1.Infrastructure;
+using employee_api.Application.WorkPatterns.Commands.CreateWorkPattern;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Infrastructure;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
 {
     public class CreateWorkPatternHandlerTests
     {
@@ -40,7 +40,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
         public async Task HandleShouldCallCreateWorkPatternAsyncOnWorkPatternRepository_WhenCommandIsSet()
         {
             // Arrange
-            var workPattern = new Project1.Models.WorkPattern
+            var workPattern = new employee_api.Models.WorkPattern
             {
                 UserId = 1,
                 Id= new Guid(),
@@ -50,7 +50,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             };
 
             _workPatternRepositoryMock
-                .Setup(x => x.CreateWorkPatternAsync(It.IsAny<Project1.Models.WorkPattern>(), CancellationToken.None))
+                .Setup(x => x.CreateWorkPatternAsync(It.IsAny<employee_api.Models.WorkPattern>(), CancellationToken.None))
                 .ReturnsAsync(workPattern);
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<CreateWorkPatternLogicEvent>(), CancellationToken.None))
@@ -60,7 +60,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.CreateWorkPattern
             {
                 StartDate = new DateTime(2022, 1, 1, 0, 0, 0),
                 EndDate = new DateTime(2023, 1, 1, 0, 0, 0),
-                Parts = new List<Project1.Models.WorkPatternPart>()
+                Parts = new List<employee_api.Models.WorkPatternPart>()
             });
 
             // Act

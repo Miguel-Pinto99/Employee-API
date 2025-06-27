@@ -3,12 +3,12 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Application.ApplicationUsers.Commands.EditApplicationUser;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
-using Project1.Application.ApplicationUsers.Queries.EditApplicationUser;
+using employee_api.Application.ApplicationUsers.Commands.EditApplicationUser;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Application.ApplicationUsers.Queries.EditApplicationUser;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.EditApplicationUser
 {
     public class EditApplicationUserHandlerTests
     {
@@ -41,13 +41,13 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicati
         public async Task HandleShouldCallEditApplicationUserAsyncOnApplicationUserRepository_WhenCommandIsSet()
         {
             // Arrange
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>()
+                OfficeLocation = "1",
+                WorkPatterns = new List<employee_api.Models.WorkPattern>()
             };
 
             _applicationUserRepositoryMock
@@ -55,7 +55,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicati
                 .ReturnsAsync(applicationUser);
 
             _applicationUserRepositoryMock
-                .Setup(x => x.UpdateApplicationUserAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None))
+                .Setup(x => x.UpdateApplicationUserAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None))
                 .ReturnsAsync(applicationUser);
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<EditApplicationUserLogicEvent>(), CancellationToken.None))
@@ -64,7 +64,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicati
             var command = new EditApplicationUserCommand(1, new EditApplicationUserCommandBody
             {
                 FirstName = "Miguel",
-                OfficeLocation = 1
+                OfficeLocation = "1"
             });
 
             // Act
@@ -77,7 +77,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.EditApplicati
             _mediatorMock
                 .Verify(x => x.Publish(It.IsAny<EditApplicationUserLogicEvent>(), CancellationToken.None), Times.Once);
             _applicationUserRepositoryMock
-                .Verify(x => x.UpdateApplicationUserAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.UpdateApplicationUserAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
             _applicationUserRepositoryMock
                 .Verify(x => x.GetApplicationUserAsync(It.IsAny<int>(),false, CancellationToken.None), Times.Once);
         }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Events.UnsEvents;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Events.UnsEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Events
+namespace employee_api.Tests.Events
 {
     public class EventsTests
     {
@@ -31,12 +31,12 @@ namespace PVSDashboard.Tests.Events
             var listAbsents = new List<Absent>();
             var applicationUser = new ApplicationUser();
             var officeLocation = 1;
-            var userEachLocation = new UsersEachLocation(1,new List<int>{ 1, 2 });
+            var userEachLocation = new UsersEachLocation("1",new List<int>{ 1, 2 });
 
             // Act
             var eventDeleteTopicApplicationUser = new DeleteTopicApplicationUserEvent(applicationUser);
             var eventPublishCheckIn = new PublishCheckInEvent(applicationUser);
-            var eventPublishLocation = new PublishLocationEvent(userEachLocation,1);
+            var eventPublishLocation = new PublishLocationEvent(userEachLocation,"1");
             var eventPublishWorkPattern = new PublishWorkPatternEvent(applicationUser);
             var eventRemoveTimer = new RemoveTimerEvent(applicationUser);
             var eventStopTimer = new StopTimerEvent(applicationUser);
@@ -61,7 +61,7 @@ namespace PVSDashboard.Tests.Events
             eventDeleteTopicApplicationUser.ApplicationUser.Should().BeEquivalentTo(applicationUser);
             eventPublishCheckIn.ApplicationUser.Should().BeEquivalentTo(applicationUser);
             eventPublishLocation.UsersEachLocation.Should().BeEquivalentTo(userEachLocation);
-            eventPublishLocation.OfficeLocation.Should().Be(1);
+            eventPublishLocation.OfficeLocation.Should().Be("1");
             eventRemoveTimer.ApplicationUser.Should().BeEquivalentTo(applicationUser);
             eventPublishWorkPattern.ApplicationUser.Should().BeEquivalentTo(applicationUser);
             eventStopTimer.ApplicationUser.Should().BeEquivalentTo(applicationUser);

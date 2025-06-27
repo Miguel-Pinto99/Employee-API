@@ -7,13 +7,13 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.Absent.Commands.DeleteAbsent;
-using Project1.Persistance;
+using employee_api.Application.Absent.Commands.DeleteAbsent;
+using employee_api.Persistance;
 using Xunit;
-using Project1.Models;
-using Project1.Events.AbsentLogicEvents;
+using employee_api.Models;
+using employee_api.Events.AbsentLogicEvents;
 
-namespace PVSDashboard.Tests.Application.Absents.Commands.DeleteAbsent
+namespace employee_api.Tests.Application.Absents.Commands.DeleteAbsent
 {
     public class DeleteAbsentHandlerTests
     {
@@ -46,7 +46,7 @@ namespace PVSDashboard.Tests.Application.Absents.Commands.DeleteAbsent
         public async Task HandleShouldCallDeleteAbsentAsyncOnAbsentRepository_WhenCommandIsSet()
         {
             // Arrange
-            var absent = new Project1.Models.Absent
+            var absent = new employee_api.Models.Absent
             {
                 Id = Guid.NewGuid(),
                 UserId = 1,

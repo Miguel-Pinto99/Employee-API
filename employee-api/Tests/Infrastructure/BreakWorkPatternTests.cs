@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Project1.Infrastructure;
-using Project1.Models;
+using employee_api.Infrastructure;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Infrastructure
+namespace employee_api.Tests.Infrastructure
 {
     public class BreakWorkPatternTests
     {
