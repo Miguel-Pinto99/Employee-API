@@ -2,11 +2,11 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
 using Xunit;
-using Project1.Application.ApplicationUsers.Queries.GetAllApplicationUser;
-using Project1.Persistance;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.GetAllApplicationUser;
+using employee_api.Persistance;
+using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetAllApplicationUser
 {
     public class GetAllApplicationUsersHandlerTests
     {

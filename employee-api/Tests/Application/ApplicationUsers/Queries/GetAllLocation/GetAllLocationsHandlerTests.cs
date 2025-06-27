@@ -2,12 +2,12 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using Moq;
 using Xunit;
-using Project1.Application.ApplicationUsers.Queries.GetAllLocation;
-using Project1.Persistance;
+using employee_api.Application.ApplicationUsers.Queries.GetAllLocation;
+using employee_api.Persistance;
 using System.Collections.Generic;
-using Project1.Models;
+using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetAllLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetAllLocation
 {
     public class GetAllLocationsHandlerTests
     {

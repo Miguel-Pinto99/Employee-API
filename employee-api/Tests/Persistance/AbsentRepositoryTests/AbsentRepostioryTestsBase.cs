@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Project1.Data;
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Data;
+using employee_api.Models;
+using employee_api.Persistance;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PVSDashboard.Tests.Persistance.AbsentRepositoryTests
+namespace employee_api.Tests.Persistance.AbsentRepositoryTests
 {
     public class AbsentRepositoryTestsBase : RepositoryTestsBase
     {

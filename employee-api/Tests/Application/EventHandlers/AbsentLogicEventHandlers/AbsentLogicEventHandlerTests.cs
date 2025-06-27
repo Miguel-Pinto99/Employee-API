@@ -3,16 +3,16 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Events.AbsentLogicEvents;
-using Project1.Infrastructure;
-using Project1.Timers;
-using Project1.Application.ApplicationUsers.Queries.GetApplicationUser;
-using Project1.Application.Absent.Queries.GetAllAbsent;
-using Project1.Events.UnsEvents;
-using Project1.Application.EventHandlers.AbsentLogic;
-using Project1.Models;
+using employee_api.Events.AbsentLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Timers;
+using employee_api.Application.ApplicationUsers.Queries.GetApplicationUser;
+using employee_api.Application.Absent.Queries.GetAllAbsent;
+using employee_api.Events.UnsEvents;
+using employee_api.Application.EventHandlers.AbsentLogic;
+using employee_api.Models;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.AbsentLogicEventHandlers
 {
     public class AbsentLogicEventHandlerTests
     {
@@ -75,13 +75,13 @@ namespace PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = listWorkPatterns
             };
 
-            var listAllAbsents = new List<Project1.Models.Absent>
+            var listAllAbsents = new List<employee_api.Models.Absent>
             {
-                new Project1.Models.Absent
+                new employee_api.Models.Absent
                 {
                     UserId= 1,
                     Id = new Guid(),
@@ -99,16 +99,16 @@ namespace PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers
             _mediatorMock.Setup(x => x.Publish(It.IsAny<PublishWorkPatternEvent>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
-            _timerServiceMock.Setup(x => x.RemoveAbsentsAsync(It.IsAny<List<Project1.Models.Absent>>(), CancellationToken.None))
+            _timerServiceMock.Setup(x => x.RemoveAbsentsAsync(It.IsAny<List<employee_api.Models.Absent>>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
-            _unsServiceMock.Setup(x => x.CheckTodayAbsentsAsync(It.IsAny<List<Project1.Models.Absent>>(), CancellationToken.None))
+            _unsServiceMock.Setup(x => x.CheckTodayAbsentsAsync(It.IsAny<List<employee_api.Models.Absent>>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
             _timerServiceMock.Setup(x => x.ReinitializeTimersAsync(It.IsAny<ApplicationUser>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
-            var command = new AbsentLogicEvent(new Project1.Models.Absent
+            var command = new AbsentLogicEvent(new employee_api.Models.Absent
             {
                 UserId = 1,
                 StartDate = new DateTime(2022, 1, 1, 0, 0, 0),
@@ -124,15 +124,15 @@ namespace PVSDashboard.Tests.Application.EventHandlers.AbsentLogicEventHandlers
             _mediatorMock
                 .Verify(x => x.Send(It.IsAny<GetApplicationUserCommand>(), CancellationToken.None), Times.Once);
             _unsServiceMock
-                .Verify(x => x.CheckTodayAbsentsAsync(It.IsAny<List<Project1.Models.Absent>>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.CheckTodayAbsentsAsync(It.IsAny<List<employee_api.Models.Absent>>(), CancellationToken.None), Times.Once);
             _mediatorMock
                 .Verify(x => x.Send(It.IsAny<GetAllAbsentCommand>(), CancellationToken.None), Times.Once);
             _mediatorMock
                 .Verify(x => x.Publish(It.IsAny<PublishWorkPatternEvent>(), CancellationToken.None), Times.Once);
             _timerServiceMock
-                .Verify(x => x.ReinitializeTimersAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.ReinitializeTimersAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
             _timerServiceMock
-                .Verify(x => x.RemoveAbsentsAsync(It.IsAny<List<Project1.Models.Absent>>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.RemoveAbsentsAsync(It.IsAny<List<employee_api.Models.Absent>>(), CancellationToken.None), Times.Once);
         }
     }
 }

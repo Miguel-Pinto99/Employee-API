@@ -1,8 +1,8 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
+namespace employee_api.Tests.Application.ApplicationUsers.Queries.GetLocation
 {
     public class GetLocationCommandValidatorTests
     {
@@ -16,14 +16,14 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Queries.GetLocation
         [Fact(DisplayName = "Id when is zero should not have error")]
         public void UserId_WhenZero_ShouldNotHaveError()
         {
-            var command = new GetLocationCommand(new int());
+            var command = new GetLocationCommand("");
             _validator.TestValidate(command).ShouldNotHaveValidationErrorFor(command => command);
         }
 
         [Fact(DisplayName = "Id when is two should not have error")]
         public void UserId_WhenTwo_ShouldNotHaveError()
         {
-            var command = new GetLocationCommand(2);
+            var command = new GetLocationCommand("2");
             _validator.TestValidate(command).ShouldNotHaveValidationErrorFor(command => command);
         }
     }

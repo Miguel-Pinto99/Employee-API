@@ -2,13 +2,13 @@
 
 ## Context
 
-This repository contains the work developed during my internship thesis. The project involves creating an application that connects a front-end application with a back-end application through an MQTT broker. The goal is to build a fully functional dashboard that can be displayed on the factory floors at Hoppenbrouwers locations across the Netherlands. The dashboard remains updated by subscribing to various topics on an MQTT broker, which are updated by the back-end application.
+This repository highlights the work accomplished during my internship, where I developed an application
+to connect a front-end and a back-end system through an MQTT broker. The main goal was to build a fully
+functional dashboard for the Hoppenbrouwers factory floors across the Netherlands.
+The dashboard remains updated by subscribing to various topics on an MQTT broker, which are continuously
+refreshed by the back-end application.
 
 https://github.com/user-attachments/assets/8fdc59af-69a0-413c-a6c5-0151c41a6ee8
-
-## Description
-
-The idea was to build a fully functional dashboard which could be shown at the Hoppenbrouwers factory floors in every location across the Netherlands. To keep the dashboard updated, the software subscribes to different topics on an MQTT-Broker which is being updated by the back-end application. The back-end application is a REST API coded in c# using .NET, placed in a folder named "employee-api". The API uses a local database to store the data regarding personal information about each employee (name, id, location). The application knows each employee state by overlaying his work pattern with the check-in state, the absent registers and the current time. The API is also equipped with an MQTT publisher, which updates the broker when a client tries to alter any kind of data in the local database.
 
 ## Project Structure
 
@@ -18,7 +18,7 @@ The idea was to build a fully functional dashboard which could be shown at the H
 
 ## Technologies and Tools
 
-- **C# and .NET**: Utilized for developing the back-end REST API.
+- **C# and .NET 8.0**: Utilized for developing the back-end REST API.
 - **MQTT**: Employed for message brokering between the front-end and back-end applications.
 - **Docker**: Used for containerizing the applications and managing dependencies.
 - **Swagger UI**: Implemented for API documentation and testing.

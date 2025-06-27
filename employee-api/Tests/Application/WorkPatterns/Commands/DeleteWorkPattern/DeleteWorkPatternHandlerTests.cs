@@ -3,11 +3,11 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Application.WorkPatterns.Commands.DeleteWorkPattern;
-using Project1.Persistance;
-using Project1.Events.UnsLogicEvents;
+using employee_api.Application.WorkPatterns.Commands.DeleteWorkPattern;
+using employee_api.Persistance;
+using employee_api.Events.UnsLogicEvents;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern
 {
     public class DeleteWorkPatternHandlerTests
     {
@@ -40,7 +40,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.DeleteWorkPattern
         public async Task HandleShouldCallDeleteWorkPatternAsyncOnWorkPatternRepository_WhenCommandIsSet()
         {
             // Arrange
-            var workPattern = new Project1.Models.WorkPattern
+            var workPattern = new employee_api.Models.WorkPattern
             {
                 UserId = 1,
                 Id = new Guid(),

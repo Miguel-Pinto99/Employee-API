@@ -1,7 +1,7 @@
-using Project1.Models;
-using Project1.Persistance;
+using employee_api.Models;
+using employee_api.Persistance;
 
-namespace PVSDashboard.Tests.Persistance.WorkPatternRepositoryTests
+namespace employee_api.Tests.Persistance.WorkPatternRepositoryTests
 {
     public class WorkPatternRepositoryTestsBase : RepositoryTestsBase
     {

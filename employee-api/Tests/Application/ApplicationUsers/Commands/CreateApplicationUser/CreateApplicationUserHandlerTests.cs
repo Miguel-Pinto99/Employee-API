@@ -3,11 +3,11 @@ using FluentAssertions;
 using MediatR;
 using Moq;
 using Xunit;
-using Project1.Persistance;
-using Project1.Application.ApplicationUsers.Commands.CreateApplicationUser;
-using Project1.Events.UnsLogicEvents;
+using employee_api.Persistance;
+using employee_api.Application.ApplicationUsers.Commands.CreateApplicationUser;
+using employee_api.Events.UnsLogicEvents;
 
-namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
+namespace employee_api.Tests.Application.ApplicationUsers.Commands.CreateApplicationUser
 {
     public class CreatreApplicationUserTests
     {
@@ -40,17 +40,17 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplica
         public async Task HandleShouldCallAbsentLogicEventAsyncOnApplicationUserRepository_WhenCommandIsSet()
         {
             // Arrange
-            var applicationUser = new Project1.Models.ApplicationUser
+            var applicationUser = new employee_api.Models.ApplicationUser
             {
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
-                WorkPatterns = new List<Project1.Models.WorkPattern>()
+                OfficeLocation = "1",
+                WorkPatterns = new List<employee_api.Models.WorkPattern>()
             };
 
             _applicationUserRepositoryMock
-                .Setup(x => x.CreateApplicationUserAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None))
+                .Setup(x => x.CreateApplicationUserAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None))
                 .ReturnsAsync(applicationUser);
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<CreateApplicationUserLogicEvent>(), CancellationToken.None))
@@ -59,7 +59,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplica
             var command = new CreateApplicationUserCommand(1, new CreateApplicationUserCommandBody
             {
                 FirstName = "Miguel",
-                OfficeLocation = 1
+                OfficeLocation = "1"
             });
 
             // Act
@@ -73,7 +73,7 @@ namespace PVSDashboard.Tests.Application.ApplicationUsers.Commands.CreateApplica
                 .Verify(x => x.Publish(It.IsAny<CreateApplicationUserLogicEvent>(), CancellationToken.None), Times.Once);
 
             _applicationUserRepositoryMock
-                .Verify(x => x.CreateApplicationUserAsync(It.IsAny<Project1.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
+                .Verify(x => x.CreateApplicationUserAsync(It.IsAny<employee_api.Models.ApplicationUser>(), CancellationToken.None), Times.Once);
         }
     }
 }

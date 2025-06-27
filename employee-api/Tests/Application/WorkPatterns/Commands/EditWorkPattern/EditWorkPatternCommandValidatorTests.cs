@@ -1,10 +1,10 @@
 using FluentValidation.TestHelper;
-using Project1.Application.ApplicationUsers.Queries.EditWorkPatterm;
-using Project1.Application.WorkPatterns.Commands.EditWorkPattern;
-using Project1.Models;
+using employee_api.Application.ApplicationUsers.Queries.EditWorkPatterm;
+using employee_api.Application.WorkPatterns.Commands.EditWorkPattern;
+using employee_api.Models;
 using Xunit;
 
-namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
+namespace employee_api.Tests.Application.WorkPatterns.Commands.EditWorkPattern
 {
     public class EditWorkPatternCommandValidatorTests
     {
@@ -42,7 +42,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             var editWorkPatternCommandBody = new EditWorkPatternCommandBody();
             editWorkPatternCommandBody.StartDate = new DateTime();
             editWorkPatternCommandBody.EndDate = new DateTime(2023, 1, 1, 0, 0, 0);
-            editWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            editWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new EditWorkPatternCommand(new Guid("00033300-1111-1111-1111-000000333000"), editWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.StartDate);
         }
@@ -53,7 +53,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             var editWorkPatternCommandBody = new EditWorkPatternCommandBody();
             editWorkPatternCommandBody.StartDate = new DateTime(2022, 1, 1, 0, 0, 0);
             editWorkPatternCommandBody.EndDate = new DateTime(2023, 1, 1, 0, 0, 0);
-            editWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            editWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new EditWorkPatternCommand(new Guid("00033300-1111-1111-1111-000000333000"), editWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldNotHaveValidationErrorFor(command => command.Body.EndDate);
         }
@@ -64,7 +64,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             var editWorkPatternCommandBody = new EditWorkPatternCommandBody();
             editWorkPatternCommandBody.StartDate = new DateTime(2023, 1, 1, 0, 0, 0);
             editWorkPatternCommandBody.EndDate = new DateTime(2022, 1, 1, 0, 0, 0);
-            editWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            editWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new EditWorkPatternCommand(new Guid("00033300-1111-1111-1111-000000333000"), editWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.EndDate);
         }
@@ -75,7 +75,7 @@ namespace PVSDashboard.Tests.Application.WorkPatterns.Commands.EditWorkPattern
             var editWorkPatternCommandBody = new EditWorkPatternCommandBody();
             editWorkPatternCommandBody.StartDate = new DateTime(2023, 1, 1, 0, 0, 0);
             editWorkPatternCommandBody.EndDate = new DateTime(2022, 1, 1, 0, 0, 0);
-            editWorkPatternCommandBody.Parts = new List<Project1.Models.WorkPatternPart>();
+            editWorkPatternCommandBody.Parts = new List<employee_api.Models.WorkPatternPart>();
             var command = new EditWorkPatternCommand(new Guid("00033300-1111-1111-1111-000000333000"), editWorkPatternCommandBody);
             _validator.TestValidate(command).ShouldHaveValidationErrorFor(command => command.Body.EndDate);
         }

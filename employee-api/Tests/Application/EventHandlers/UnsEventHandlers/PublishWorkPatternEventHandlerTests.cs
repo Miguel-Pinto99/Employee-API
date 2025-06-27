@@ -2,15 +2,15 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
-using Project1.Application.Uns.EventHandlers;
+using employee_api.Application.Uns.EventHandlers;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using Project1.Events.UnsEvents;
+using employee_api.Events.UnsEvents;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsEventHandlers
 {
     public class PublishWorkPatternEventHandlerTests
     {
@@ -71,7 +71,7 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsEventHandlers
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = listWorkPatterns
             };
 

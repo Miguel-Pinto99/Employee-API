@@ -2,16 +2,16 @@ using FluentAssertions.Specialized;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using Project1.Application.ApplicationUsers.Queries.GetLocation;
-using Project1.Events.UnsEvents;
-using Project1.Events.UnsLogicEvents;
-using Project1.Infrastructure;
-using Project1.Models;
-using Project1.Timers;
+using employee_api.Application.ApplicationUsers.Queries.GetLocation;
+using employee_api.Events.UnsEvents;
+using employee_api.Events.UnsLogicEvents;
+using employee_api.Infrastructure;
+using employee_api.Models;
+using employee_api.Timers;
 using Xunit;
-using Project1.Application.EventHandlers.UnsLogicEventHandlers;
+using employee_api.Application.EventHandlers.UnsLogicEventHandlers;
 
-namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
+namespace employee_api.Tests.Application.EventHandlers.UnsLogicEventHandlers
 {
     public class EditApplicationUserUnsLogicEventHandlerTests
     {
@@ -71,7 +71,7 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 Id = 1,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 1,
+                OfficeLocation = "1",
                 WorkPatterns = listWorkPatterns
             };
             var applicationUser2 = new ApplicationUser
@@ -79,13 +79,13 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 Id = 2,
                 FirstName = "Miguel",
                 CheckedIn = true,
-                OfficeLocation = 2,
+                OfficeLocation = "2",
                 WorkPatterns = listWorkPatterns
             };
 
-            var listAllEditApplicationUsers = new List<Project1.Models.WorkPattern>
+            var listAllEditApplicationUsers = new List<employee_api.Models.WorkPattern>
             {
-                new Project1.Models.WorkPattern
+                new employee_api.Models.WorkPattern
                 {
                     UserId= 1,
                     Id = new Guid(),
@@ -94,8 +94,8 @@ namespace PVSDashboard.Tests.Application.EventHandlers.UnsLogicEventHandlers
                 }
             };
 
-            UsersEachLocation usersEachLocation1 = new UsersEachLocation(1, new List<int> { 1, 2, 3 });
-            UsersEachLocation usersEachLocation2 = new UsersEachLocation(2, new List<int> { 3, 2, 1 });
+            UsersEachLocation usersEachLocation1 = new UsersEachLocation("1", new List<int> { 1, 2, 3 });
+            UsersEachLocation usersEachLocation2 = new UsersEachLocation("2", new List<int> { 3, 2, 1 });
 
             _mediatorMock.Setup(x => x.Publish(It.IsAny<DeleteTopicApplicationUserEvent>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
