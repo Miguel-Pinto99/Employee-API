@@ -65,5 +65,5 @@ To run either the backend or frontend application individually, use:
    ```
 
 ### Accessing the Applications
-- **API Documentation and Testing**: The Swagger UI for API documentation and testing is available at `http://localhost:5000`.
+- **API Documentation and Testing**: The Swagger UI for API documentation and testing is available at `http://localhost:5039/swagger/index.html`.
 - **Front-end Application**: The front-end application can be accessed at `http://localhost:7212`.

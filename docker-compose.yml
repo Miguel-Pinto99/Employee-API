@@ -15,6 +15,19 @@ services:
       retries: 3
     restart: unless-stopped
 
+  backend:
+    build:
+      context: ./employee-api
+      dockerfile: Dockerfile
+    ports:
+      - "5039:5039"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:5039
+    command: ["dotnet", "run"]
+    depends_on:
+      - emqx
+
   frontend:
     build:
       context: ./employee-front-end
@@ -26,3 +39,5 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:7212;http://0.0.0.0:5241
     command: ["dotnet", "run"]
+    depends_on:
+      - backend

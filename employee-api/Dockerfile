@@ -57,3 +57,6 @@ RUN dotnet tool install --global dotnet-ef
 
 # Generate a self-signed HTTPS certificate for development
 RUN dotnet dev-certs https --trust
+
+# Expose the port
+EXPOSE 5039
