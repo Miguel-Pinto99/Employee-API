@@ -46,6 +46,9 @@ namespace employee_api.Persistance
                 userInDb.FirstName = user.FirstName;
                 userInDb.OfficeLocation = user.OfficeLocation;
                 userInDb.CheckedIn = user.CheckedIn;
+                userInDb.SAMAcountName = user.SAMAcountName;
+                userInDb.EmployeeNumber = user.EmployeeNumber;
+                userInDb.Email = user.Email;
                 await _context.SaveChangesAsync();
             }
             return userInDb;
