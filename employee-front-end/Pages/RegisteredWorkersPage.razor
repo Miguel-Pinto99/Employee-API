@@ -9,7 +9,8 @@
 @using Microsoft.AspNetCore.Mvc;
 @using System.Text.RegularExpressions;
 
-
+@using System.Text.Json
+@using System.Linq
 @inject UnsService _unsService
 @inject IJSRuntime JsRuntime
 @inject UnsEvents _unsEvent
@@ -351,6 +352,7 @@
 
         if (usersInLocation is not null)
         {
+            var guidList = JsonSerializer.Deserialize<List<int>>(usersInLocation.GuidList.FirstOrDefault() ?? "[]");
             var _filterList = _listApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
             foreach (var guid in _filterList)
             {
