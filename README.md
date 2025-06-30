@@ -8,7 +8,7 @@ functional dashboard for the Hoppenbrouwers factory floors across the Netherland
 The dashboard remains updated by subscribing to various topics on an MQTT broker, which are continuously
 refreshed by the back-end application.
 
-https://github.com/user-attachments/assets/8fdc59af-69a0-413c-a6c5-0151c41a6ee8
+https://github.com/user-attachments/assets/5f8edf18-4133-4907-b148-7e4e3e9877b7
 
 ## Project Structure
 
