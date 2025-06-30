@@ -344,10 +344,10 @@
         if (usersInLocation is not null)
         {
             var guidList = JsonSerializer.Deserialize<List<int>>(usersInLocation.GuidList.FirstOrDefault() ?? "[]");
-            var _filterList = _listTodayApplicationUsers.Select(i => i.Id).Intersect(usersInLocation.GuidList);
+            var _filterList = _listTodayApplicationUsers.Select(i => int.Parse(i.Id)).Intersect(guidList);
             foreach (var guid in _filterList)
             {
-                var user = _listTodayApplicationUsers.FirstOrDefault(x => x.Id == guid);
+                var user = _listTodayApplicationUsers.FirstOrDefault(x => x.Id == string.Join("", guid));
                 _listTodayApplicationUsersLocation.Add(user);
             }
         }
