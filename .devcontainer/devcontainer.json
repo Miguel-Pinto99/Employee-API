@@ -1,8 +1,11 @@
 {
-    "name": "Blazor Frontend Development",
-    "build": {
-        "dockerfile": "../employee-api/Dockerfile"
-    },
+    "name": "Employee API Development Environment",
+    "dockerComposeFile": [
+        "../docker-compose.dev.yml",
+        "docker-compose.devcontainer.yml"
+    ],
+    "service": "dev",
+    "workspaceFolder": "/workspace",
     "init": true,
     "mounts": [
         {
@@ -21,17 +24,27 @@
                 "visualstudioexptteam.vscodeintellicode",
                 "mhutchie.git-graph",
                 "davidanson.vscode-markdownlint",
-                "mrmlnc.vscode-duplicate"
-            ]
+                "mrmlnc.vscode-duplicate",
+                "ms-vscode.vscode-json",
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-csharp"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "omnisharp.enableEditorConfigSupport": true,
+                "omnisharp.enableImportCompletion": true
+            }
         }
     },
-    "forwardPorts": [5000, 5001],
-    "postCreateCommand": "dotnet restore",
+    "forwardPorts": [1883, 8083, 8084, 8081, 5039, 7212, 5241],
+    "postCreateCommand": "echo 'Development environment ready. Use docker-compose --profile backend up or docker-compose --profile frontend up to start services manually.'",
     "postAttachCommand": "git config --global --add safe.directory /workspace",
     "remoteUser": "vscode",
-    "workspaceFolder": "/workspace",
     "features": {
         "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest"
         }
     }

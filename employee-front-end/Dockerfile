@@ -59,6 +59,5 @@ RUN dotnet dev-certs https --trust
 # Ensure proper ownership of the project directory
 RUN sudo chown -R vscode:vscode /workspace/employee-front-end
 RUN cd /workspace/employee-front-end && dotnet dev-certs https
-
 # Expose the ports
 EXPOSE 7212 5241

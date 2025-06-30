@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  emqx:
+    image: emqx/emqx:latest
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8081:8081"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18083/api/v5/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./employee-api
+      dockerfile: Dockerfile
+    ports:
+      - "5039:5039"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:5039
+    command: ["dotnet", "run"]
+    depends_on:
+      - emqx
+    profiles:
+      - backend
+
+  frontend:
+    build:
+      context: ./employee-front-end
+      dockerfile: Dockerfile
+    ports:
+      - "7212:7212"
+      - "5241:5241"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:7212;http://0.0.0.0:5241
+    command: ["dotnet", "run"]
+    depends_on:
+      - backend
+    profiles:
+      - frontend 
